@@ -1,0 +1,190 @@
+.icon_camera {background-image:url(../images/icons/camera_start.png)!important;}
+
+.tangram-suggestion-main{
+	z-index: 100000;
+}
+
+.emptyvehbutton{
+	/* background-color: #35baf6; */
+	background-color: #0D85CA;
+    border-color: #31ade5;
+    border-radius: 0;
+    padding: 7px 7px 7px 7px;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.emptyvehbutton span{
+	color: #f0f0f0;
+}
+
+/*顶部导航缩进*/
+.x-btn-default-toolbar-large{
+	padding:4px 4px 4px 4px !important;
+}
+
+.x-btn-icon-el-default-toolbar-large{
+	margin-bottom:6px !important;
+}
+
+.x-btn-inner-default-toolbar-large{
+	padding:0 !important;
+}
+
+
+/*首页导航CSS*/
+
+.app-header-toolbar-button{
+	width: 100px;
+/* 	border-color: #35baf6;
+background-color:#35baf6; */
+}
+
+/*button hover效果*/
+.x-btn-over.x-btn-default-toolbar-large{
+ 	border-color: #86C2E4 !important;
+    background-color:#86C2E4 !important;
+}
+
+
+ .app-header-toolbar-button span .x-btn-inner{
+ 	    font-size: 12px;
+	    color: #DDDDDD;
+	    font-family: youyuan;
+	    font-weight: bold;
+ }
+
+
+.app-header-toolbar-button-permissionMgmt{
+	background: url(../images/icons/manicons/icon_home_ordermgmt.png) no-repeat center;
+	height: 38px !important;
+}
+
+.app-header-toolbar-button-organizationMgmt{
+	background: url(../images/icons/manicons/icon_home_orgmgmt.png) no-repeat center;
+	height: 38px !important;
+}
+
+/*左侧导航栏样式*/
+.x-treelist-navigation{
+	border: 1px solid #D7D7D7;
+    background-color: #F1F1F1 !important;
+}
+
+.x-treelist-navigation .x-treelist-item-expanded {
+    background-color: #F1F1F1 !important;
+}
+
+.top-user-name{
+	color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    left: 1640px;
+}
+.top-role-name{
+	color: #FFFFFF;
+    font-size: 16px;
+}
+
+.top-logout{
+    font-size: 18px;
+    font-weight: bold;	
+}
+
+.x-btn-wrap-default-toolbar-small.x-btn-arrow-right:after{	
+	color: #FFFFFF !important;
+}
+.x-treelist-navigation .x-treelist-item-icon,.x-treelist-navigation .x-treelist-item-text{
+	color: #505050 !important;
+}
+
+.x-treelist-navigation .x-treelist-item-expander{
+	color: #505050 !important;
+}
+
+.x-treelist-navigation .x-treelist-item-selected > .x-treelist-row {
+    background-color: #0d85ca !important;
+}
+.x-treelist-navigation .x-treelist-item-selected > .x-treelist-row:before{
+	background-color: #0d85ca !important;
+}
+
+.x-treelist-navigation .x-treelist-row-over {
+    background-color: #A3A3A3 !important;
+}
+
+/* .x-btn-default-toolbar-small{
+	background-color: #35baf6 !important;
+    border-color: #35baf6 !important;
+} */
+
+.x-treelist-navigation {
+	width: 276px !important;
+}
+
+#mainFooter-innerCt{
+	background-color: #DDDDDD;
+}
+
+#mainPageTable th{
+	font-weight: 500;
+    font-size: 14px;
+}
+
+#businessTypeCheckGroup-containerEl, #businessTypeCheckGroupRental-containerEl{
+	width:160px !important;
+}
+
+
+#navigationTreeList .x-treelist-item-icon:before, #navigationTreeList .x-treelist-item-tool:before, #navigationTreeList .x-treelist-item-expander{
+	line-height:50px;
+}
+
+#navigationTreeList .x-treelist-item-text{
+	line-height:50px;
+}
+
+/* 用户名后三角菜单，点击后向上 */
+#mainUserMenuButton.x-btn-menu-active .x-btn-wrap-default-toolbar-small.x-btn-arrow-right:after {
+	content: "\f0d8";
+}
+
+/*主菜单，选中后文字变为白色*/
+.x-treelist-navigation .x-treelist-item-selected > .x-treelist-row > .x-treelist-item-wrap > .x-treelist-item-text{
+	color: #ffffff !important;
+}
+.x-treelist-navigation .x-treelist-item-selected > .x-treelist-row > .x-treelist-item-wrap > .x-treelist-item-icon{
+	color: #ffffff !important;
+}
+.x-treelist-navigation .x-treelist-item-selected > .x-treelist-row > .x-treelist-item-wrap > .x-treelist-item-expander{
+	color: #ffffff !important;
+}
+
+/*button hover效果*/
+.x-btn-over.x-btn-default-toolbar-large{
+ 	border-color: #86C2E4 !important;
+    background-color:#86C2E4 !important;
+}
+
+/*顶部导航缩进*/
+.x-btn-default-toolbar-large{
+	padding:4px 4px 4px 4px !important;
+}
+
+.x-btn-icon-el-default-toolbar-large{
+	margin-bottom:6px !important;
+}
+
+.x-btn-inner-default-toolbar-large{
+	padding:0 !important;
+}
+
+/*输入框垂直居中*/
+.x-form-text-default{
+	padding:0px 10px 4px !important;
+}
+
+.companyForCreditLimit{	
+    font-weight: bold;
+    font-size: 16px;
+}

@@ -1,0 +1,258 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family : Microsoft YaHei;
+}
+body{
+ 	/*  background: url(../images/bg_login_gehua.png) no-repeat;  
+    background-color: #339999;
+	background-attachment:fixed;
+	background-size: cover; */
+}
+.container{
+	background-image:url(../images/bg_login_gehua.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 1080px;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    width: 100%;
+}
+.main{
+	width: 70%;
+	margin-top: 20%;
+}
+.login_logo{
+	margin-top: 20px;
+	margin-bottom: 36px;
+}
+.login_logo img{
+	margin : 20 0 0 60;
+}
+.login_left .logo_bg img{
+	position: absolute;
+	top : -46%;
+	left: 2%;
+	z-index: -1;
+}
+.login_label{
+	color: #FFFFFF;
+	font-size: 40px;
+	font-family: Microsoft YaHei;
+	text-align: center;
+}
+.login_left .login_title{
+	font-size : 36px;
+	font-family : Microsoft YaHei;
+	color : #fff;
+}
+/* .login_box{
+	position: relative;
+} */
+.login_box_content{
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left:170px;
+	margin-top:-210px;
+	width:450px;
+	height:300px;
+	z-index:3;
+	
+	
+	
+	
+/* 	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 600px; */
+	/* position: fixed;
+    left: 59%;
+    margin-top: 17%;
+    	width: 450px;
+	height: 360px; */
+	/* width: 540px;
+	height: 450px;
+	border-color: transparent;
+    background-color: rgba(240, 240, 240, 0.1);
+    left: 36%;
+	margin-right: 14.92%;
+	margin-top: 13.35%;
+	border-radius: 12px; */
+}
+.login_form{
+	/* width: 450px;
+	height: 360px; */
+	/* margin: 48px 66px 48px 66px; */
+}
+
+.login_input_font{
+    font-size: 16px;
+    font-family: MicrosoftYaHei;
+    color: #989898 !important;
+}
+
+.login_user,.login_pwd{
+	width: 300px;
+    height: 40px;
+    margin-left: 8px;
+    border: 0px;
+}
+.login_code{
+	width: 230px;
+	height: 40px;
+	border: 0px;
+	float:left;
+}
+.login_code,.login_user,.login_pwd{
+	border-radius:5px;
+}
+
+.login_buttom{
+      position:absolute;
+      bottom:2%;
+/*       left: 35.35%; */
+      color : #E5E5E5;
+      font-size: 16px;
+      width: 100%;
+}
+
+.login_buttom a{
+      font-size: 18px;
+}
+
+.logon{
+	width: 354px;
+	height: 46px;
+ 	color: #FFFFFF; 
+/* 	background : #AD1627 !important; */
+	background : #0085d0 !important;
+	border : 0 !important;
+	border-radius:3px;
+	font-size: 20px;
+/* 	background:linear-gradient(top,#5dcbe5,#0bb7df);
+	background:-moz-linear-gradient(top,#5dcbe5,#0bb7df);
+	background:-webkit-gradient(top,#5dcbe5,#0bb7df);
+	background:-ms-linear-gradient(top,#5dcbe5,#0bb7df);
+	background:-o-linear-gradient(top,#5dcbe5,#0bb7df); */
+}
+.remember label{
+	color : #656565;
+	font-size: 16px;
+	font-family: Microsoft YaHei;
+	
+}
+.remember input{
+	width: 20px;
+    height: 20px;
+    vertical-align: bottom;
+    /* margin-left: 10px; */
+    border: 1px solid #D5D5D4;
+}
+.forget{
+	float: right;
+	color : #656565;
+	font-size:16px;
+	text-decoration:none;
+}
+.forget:hover{
+	color:#ff0000;
+	text-decoration: underline;
+}
+.login_left{
+	margin-right: -100px;
+}
+.code_box{
+	margin: 0 0 -10px 5px;
+	width:100px;
+	height:30px;
+	background:white;
+	display: inline-block;
+	display: none;
+	font-size: 24px;
+	line-height: 30px;
+	padding-left: 10px;
+	letter-spacing:6px
+}
+@media (max-width: 970px){
+	/*.login_code{
+		margin-left: -120px;
+	}
+	.login_left{
+		margin-right: 0px;
+	}*/
+	/* .login_box_content{
+		position: absolute;
+		top: 0px;
+		left : 32%;
+	} */
+}
+.login_form{
+	    width: 354px;
+    margin: 45px auto;
+}
+.login_form p{
+	margin-bottom:16px !important;
+}
+/* .login_form p:nth-of-type(3){
+	margin-top:-4px !important;
+} */
+
+.iconfont {
+	font-family: iconfont !important;
+	font-size: 22px;
+	font-style: normal;
+	background: url(../images/icon_user.png) no-repeat;
+}
+.icon-user{
+position: absolute;left: 0；z-index:5;
+background-image: url(../images/icon_user.png); /*引入图片图片*/
+background-repeat: no-repeat; /*设置图片不重复*/
+background-position: 2px 5px; /*图片显示的位置*/
+width: 22px; /*设置图片显示的宽*/
+height: 30px; /*图片显示的高*/
+}
+.icon-pwd{
+position: absolute;left: 0；z-index:5;
+background-image: url(../images/icon_password.png); /*引入图片图片*/
+background-repeat: no-repeat; /*设置图片不重复*/
+background-position: 2px 5px; /*图片显示的位置*/
+width: 22px; /*设置图片显示的宽*/
+height: 30px; /*图片显示的高*/
+}
+.ph-hide .ph-label {
+	display: none;
+}
+
+.static-form .field .ph-label {
+	position: absolute;
+	line-height: 42px;
+	height: 42px;
+	color: #999;
+	opacity: 1;
+	transition: all 0.2s ease-out 0s;
+	left: 50px;
+	top: 0px;
+	font-size: 14px;
+}
+
+.login-label {
+	position: absolute;
+	z-index: 3;
+	top: 0px;
+	left: 0px;
+	width: 22px;
+	height: 26px;
+	background: transparent url(login_icon_user.png) no-repeat scroll 0% 0%;
+}
+
+.name-label {
+	background-position: 0px 0px;
+}
+a{color:#333;text-decoration:none; }
+a:hover {color:#CC3300;text-decoration:underline;}
+

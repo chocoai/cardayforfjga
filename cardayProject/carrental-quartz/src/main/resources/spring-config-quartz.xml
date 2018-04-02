@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="timeZoneLocale" class="com.cmdt.carrental.quartz.util.TimeZoneLocale"/>
+
+    <!-- vehicle monitor -->
+    <bean id="vehicleMonitorJob"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.cmdt.carrental.quartz.job.VehicleMonitorJob"/>
+	</bean>
+
+	<bean id="vehicleMonitorTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="vehicleMonitorJob" />
+		<property name="timeZone" ref="timeZoneLocale"></property>
+		<property name="cronExpression" value="0/10 * * * * ?"></property>
+	</bean>
+	
+	<!-- vehicle Overspeed Alert Job -->
+   <!--  <bean id="vehicleOverspeedAlertJob"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.cmdt.carrental.quartz.job.VehicleOverspeedAlertJob"/>
+	</bean>
+
+	<bean id="vehicleOverspeedAlertTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="vehicleOverspeedAlertJob" />
+		<property name="timeZone" ref="timeZoneLocale"></property>
+		<property name="cronExpression" value="0/10 * * * * ?"></property>
+	</bean> -->
+	
+	<!-- vehicle outbound Alert Job -->
+    <bean id="vehicleOutboundJob"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.cmdt.carrental.quartz.job.VehicleOutboundJob"/>
+	</bean>
+
+	<bean id="vehicleOutboundTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="vehicleOutboundJob" />
+		<property name="timeZone" ref="timeZoneLocale"></property>
+		<property name="cronExpression" value="0 0/1 * * * ?"></property>
+	</bean>
+	
+	<!-- vehicle back Alert Job -->
+    <bean id="vehicleBackAlertJob"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.cmdt.carrental.quartz.job.VehicleBackAlertJob"/>
+	</bean>
+
+	<bean id="vehicleBackAlertTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="vehicleBackAlertJob" />
+		<property name="timeZone" ref="timeZoneLocale"></property>
+		<property name="cronExpression" value="0 0/1 * * * ?"></property>
+	</bean>
+	
+	<!-- vehicle Alert Statistics Job -->
+<!--     <bean id="vehicleAlertStatisticsJob"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.cmdt.carrental.quartz.job.VehicleAlertStatisticsJob"/>
+	</bean>
+
+	<bean id="vehicleAlertStatisticsTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="vehicleAlertStatisticsJob" />
+		<property name="timeZone" ref="timeZoneLocale"></property>
+		<property name="cronExpression" value="0 0 1 * * ?"></property>
+	</bean> -->
+	
+	<!-- vehicle usage report Job -->
+    <bean id="vehicleUsageReportJob"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.cmdt.carrental.quartz.job.VehicleUsageReportJob"/>
+	</bean>
+
+	<bean id="vehicleUsageReportTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="vehicleUsageReportJob" />
+		<property name="timeZone" ref="timeZoneLocale"></property>
+		<property name="cronExpression" value="0/30 * * * * ?"></property>
+	</bean>
+	
+    <!-- Organization Service expire monitor Job -->
+    <bean id="organizationServiceExpireJob"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.cmdt.carrental.quartz.job.OrganizationServiceExpireJob"/>
+	</bean>
+
+	<bean id="organizationServiceExpireTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="organizationServiceExpireJob" />
+		<property name="timeZone" ref="timeZoneLocale"></property>
+		<property name="cronExpression" value="0 0/15 * * * ?"></property>
+	</bean>
+	
+	<!-- vehicle maintenanceJob Job -->
+    <bean id="vehicleMaintenanceJob"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.cmdt.carrental.quartz.job.VehicleMaintenanceJob"/>
+	</bean>
+
+	<bean id="vehicleMaintenanceTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="vehicleMaintenanceJob" />
+		<property name="timeZone" ref="timeZoneLocale"></property>
+		<property name="cronExpression" value="0 0/15 * * * ?"></property>
+	</bean>
+	
+	<!-- vehicle Annual Inspection Job -->
+    <bean id="vehicleAnnualInspectionJob"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.cmdt.carrental.quartz.job.VehicleAnnualInspectionJob"/>
+	</bean>
+
+	<bean id="vehicleAnnualInspectionTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="vehicleAnnualInspectionJob" />
+		<property name="timeZone" ref="timeZoneLocale"></property>
+		<property name="cronExpression" value="0 0/15 * * * ?"></property>
+	</bean>
+	
+	<!-- vehicle Travel Mileage Job -->
+    <bean id="vehicleTravelMileageJob"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.cmdt.carrental.quartz.job.VehicleTravelMileageJob"/>
+	</bean>
+
+	<bean id="vehicleTravelMileageTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="vehicleTravelMileageJob" />
+		<property name="timeZone" ref="timeZoneLocale"></property>
+		<property name="cronExpression" value="0 0 0/1 * * ?"></property>
+	</bean>
+	
+    <!-- Scheduler -->
+	<bean name="carrentalScheduler"
+		class="com.cmdt.carrental.quartz.job.CarrentalSchedulerFactoryBeanWithShutdownDelay">
+		<property name="autoStartup" value="true"></property>
+		<property name="dataSource">
+            <ref bean="dataSource"/>
+        </property>
+		<property name="configLocation" value="classpath:quartz.properties"/>
+		<property name="triggers">
+			<list>
+                <ref bean="vehicleMonitorTrigger" />
+				<!-- <ref bean="vehicleOverspeedAlertTrigger" /> -->
+				<ref bean="vehicleOutboundTrigger" />
+				<ref bean="vehicleBackAlertTrigger" />
+<!-- 				<ref bean="vehicleAlertStatisticsTrigger" /> -->
+				<ref bean="vehicleUsageReportTrigger" />
+				<ref bean="organizationServiceExpireTrigger" />
+				<ref bean="vehicleMaintenanceTrigger" />
+				<ref bean="vehicleAnnualInspectionTrigger" />
+				<ref bean="vehicleTravelMileageTrigger" />
+			</list>
+		</property>
+	</bean>
+	
+	
+</beans>

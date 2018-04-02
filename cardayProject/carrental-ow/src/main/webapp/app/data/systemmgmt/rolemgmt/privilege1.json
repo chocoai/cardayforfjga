@@ -1,0 +1,20 @@
+{
+"status":"success",
+"children":[{id:1,text:'资源x',checked: false,
+	"children":[{id:131,text:'角色管理x',checked: false,
+		"children":[{id:133,text:'角色修改',leaf:true,checked: false}, 
+			{id:132,text:'角色新增',leaf:true,checked: false}, 
+			{id:135,text:'角色查看',leaf:true,checked: false}, 
+			{id:134,text:'角色删除',leaf:true,checked: false}],leaf:false}, 
+		{id:11,text:'组织机构管理',checked: false,
+		"children":[{id:12,text:'组织机构新增',leaf:true,checked: false},
+			{id:13,text:'组织机构修改',leaf:true,checked: false}, 
+			{id:14,text:'组织机构删除',leaf:true,checked: false}, 
+			{id:15,text:'组织机构查看',leaf:true,checked: false}],leaf:false},
+		{id:51,text:'用户管理',checked: false,
+		"children":[{id:55,text:'用户查看',leaf:true,checked: false}, 
+			{id:54,text:'用户删除',leaf:true,checked: false}, 
+			{id:53,text:'用户修改',leaf:true,checked: false}, 
+			{id:52,text:'用户新增',leaf:true,checked: false}],leaf:false}, 
+			{id:91,text:'资源管理',leaf:true,checked: false}],leaf:false}]
+}

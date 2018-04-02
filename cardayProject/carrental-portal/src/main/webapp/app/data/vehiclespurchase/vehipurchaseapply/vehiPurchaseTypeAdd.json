@@ -1,0 +1,18 @@
+{
+    "data": [
+            {
+                "id": 101,
+                "emergencyOriginalVehNum": "100",
+                "emergencyChangeVehNum": "0",
+                "administrationOriginalVehNum": "110",
+                "administrationChangeVehNum": "0",
+                "administrationSpecOriginalVehNum": "20",
+                "administrationSpecChangeVehNum": "0",
+                "enforcementOriginalVehNum": "40",
+                "enforcementChangeVehNum": "0",
+                "enforcementSpecOriginalVehNum": "20",
+                "enforcementSpecChangeVehNum": "0",
+            }
+        ],
+    "status": "success"
+}

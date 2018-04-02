@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="resources/js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="resources/js/jquery.params.js"></script>
+    <!--<script type="text/javascript" src="resources/js/mobileFix.js"></script>-->
+    <title>Car Day App Download</title>
+</head>
+<body>
+<div class="wrap">
+    <div class="ios wx">
+        <img src="" class="wx_bg" />
+        <div class="wx_version"></div>
+        <img src="resources/images/download/ios/wx_button.png" class="wx_button" />
+        <div class="window">
+            <img src="resources/images/download/ios/window_bg.png" alt="" class="window_bg" />
+            <img src="resources/images/download/ios/window_close.png" alt="" class="window_close" />
+        </div>
+    </div>
+    <div class="ios download">
+        <div class="download_version"></div>
+        <img src="" class="download_bg" />
+        <img src="resources/images/download/ios/download_button.png" class="download_button">
+    </div>
+    <div class="android wx">
+        <img src="" class="wx_bg" />
+        <div class="wx_version"></div>
+        <img src="resources/images/download/android/wx_button.png" class="wx_button" />
+        <div class="window">
+            <img src="resources/images/download/android/window_bg.png" alt="" class="window_bg" />
+            <img src="resources/images/download/android/window_close.png" alt="" class="window_close" />
+        </div>
+    </div>
+    <div class="android download">
+        <div class="download_version"></div>
+        <img src="" class="download_bg" />
+        <img src="resources/images/download/android/download_button.png" class="download_button">
+    </div>
+</div>
+<style>
+    /*g*/
+    body{
+        background-color:#F2F2F2;
+        margin-left:-3px;
+        margin-top:-5px;
+        overflow: hidden;
+    }
+    .android,.ios{
+        display:none;
+        z-index:1;
+    }
+    img,div{
+        position: absolute;
+    }
+    .window{
+        display:none;
+        z-index:2;
+        margin-left:3px;
+    }
+    .wx_version,.download_version{
+        font-size:24px;
+        width:200px;
+        font-family:"Microsoft YaHei" !important;
+    }
+    /*start*/
+</style>
+<script type="text/javascript">
+    var pw = parseInt(window.screen.width);
+    // if(phoneWidth>=720){phoneWidth = 720;}
+    //�������ű���
+    var phoneScale = pw/720;
+    var ua = navigator.userAgent;
+    if (/Android (\d+\.\d+)/.test(ua)){
+        var version = parseFloat(RegExp.$1);
+        // andriod 2.3
+        if(version>2.3){
+            document.write('<meta name="viewport" content="width=720, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">');
+            // andriod 2.3����
+        }else{
+            document.write('<meta name="viewport" content="width=720, target-densitydpi=device-dpi">');
+        }
+        // ����ϵͳ
+    } else {
+        document.write('<meta name="viewport" content="width=720, user-scalable=no, target-densitydpi=device-dpi">');
+    }
+    $(document).ready(function(){
+        document.body.addEventListener('touchmove', function (event) {
+            event.preventDefault();
+        }, false);
+        //根据传入参数不同显示不同的内容，因为有3个app
+        var AppID = $.query.get("AppID")===''?1:$.query.get("AppID");//0:无 1:企业管理 2：司机 3：用车人 4：设备管家
+        var VersionIos = ['0','V3.1.2版本','V2.1.1版本','V2.1.1版本','V2.1.1版本'];//IOS的四个版本号
+        var VersionAndroid = ['0','V3.1.2版本','V2.1.1版本','V2.1.1版本','V2.1.1版本'];//Android的四个版本号
+        var UrlIos = ['','javascript:alert("敬请期待")','javascript:alert("敬请期待")','javascript:alert("敬请期待")','javascript:alert("敬请期待")'];//IOS的四个下载链接
+        var UrlAndroid = ['','https://www.car-day.cn/resources/app/android/3.1.2/CarDay_Admin.apk','https://www.car-day.cn/resources/app/android/2.1.1/CarDay_Driver.apk','https://www.car-day.cn/resources/app/android/2.1.1/CarDay_Enduser.apk','javascript:alert("敬请期待")'];//Android的四个下载链接
+
+        var os = '';
+        var env = '';
+        var ua = navigator.userAgent.toLowerCase();
+        console.log(ua);
+        //判断浏览器系统，好像少了那1%用户？
+        if (/iphone|ipad|ipod/.test(ua)) {
+            os='ios';
+        } else if (/android/.test(ua)) {
+            os='android'
+        }
+        //判断入口，原生？微信？QQ？
+        if(/micromessenger/.test(ua)){
+            env = 'wx';//微信
+        }else if(/qq\//.test(ua)){
+            env = 'qq';//QQ
+        }else{
+            env = 'pg';//原生
+        }
+        //alert(ua);
+
+        //获取屏幕宽度
+        var phoneWidth = $(window).width();
+        //获取屏幕高度
+        var phoneHeight = $(window).height();
+
+        //alert(phoneWidth);
+
+        //判断环境和版本号显示对应页面
+        env==='pg'?$("."+os+".download").show():$("."+os+".wx").show();
+        //注入版本号
+        os==='ios'?$(".ios").children(".wx_version,.download_version").html(VersionIos[AppID]):$(".android").children(".wx_version,.download_version").html(VersionAndroid[AppID]);
+        //注入wx_bg
+        $("."+os).children(".wx_bg").attr("src","resources/images/download/"+os+"/wx_bg_"+AppID+".png");
+        //注入download_bg
+        $("."+os).children(".download_bg").attr("src","resources/images/download/"+os+"/download_bg_"+AppID+".png");
+        //QQ微信页 点击下载按钮
+        $(".wx_button").css("marginTop",phoneWidth*0.245).click(function(){
+            $(this).siblings(".window").show();
+        });
+        //QQ微信页 版本号
+        $(".wx_version").css("marginTop",phoneWidth*0.13).css("marginLeft",phoneWidth*0.355);
+        //弹窗关闭按钮
+        $(".window_close").css("marginTop",phoneWidth*0.52).css("marginLeft",phoneWidth*0.64).click(function(){
+            $(this).parent(".window").hide();
+        });
+        //下载页版本号
+        $(".android .download_version").css("marginTop",phoneWidth*0.93).css("marginLeft",phoneWidth*0.42);
+        $(".ios .download_version").css("marginTop",phoneWidth*0.99).css("marginLeft",phoneWidth*0.42);
+        $(".android .download_button").css("marginTop",phoneWidth*1.04).click(function(){
+            window.location.href=os==='ios'?UrlIos[AppID]:UrlAndroid[AppID];
+        })
+        $(".ios .download_button").css("marginTop",phoneWidth*1.09).click(function(){
+            window.location.href=os==='ios'?UrlIos[AppID]:UrlAndroid[AppID];
+        })
+    })
+</script>
+</body>
+</html>

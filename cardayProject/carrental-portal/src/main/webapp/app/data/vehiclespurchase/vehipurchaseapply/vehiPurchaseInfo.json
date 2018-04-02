@@ -1,0 +1,35 @@
+{
+    "data":[
+            {
+                "id": 101,
+                "applyVehName": "新桑塔纳",
+                "vehModel": "手动风尚版",
+                "sumAccount": "6.39",
+                "financialBudget": "200",
+                "previousBalance": "80",
+                "higherGrant": "20",
+                "otherAccount": "10",
+            },
+            {
+                "id": 102,
+                "applyVehName": "别克GL8",
+                "vehModel": "28T舒适版",
+                "sumAccount": "27.64",
+                "financialBudget": "150",
+                "previousBalance": "10",
+                "higherGrant": "10",
+                "otherAccount": "20",
+            },
+            {
+                "id": 103,
+                "applyVehName": "宝马",
+                "vehModel": "X5",
+                "sumAccount": "150",
+                "financialBudget": "100",
+                "previousBalance": "20",
+                "higherGrant": "10",
+                "otherAccount": "3",
+            }
+        ],
+    "status": "success"
+}

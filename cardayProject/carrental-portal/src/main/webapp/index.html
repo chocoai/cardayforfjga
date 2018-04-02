@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta https-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=yes">
+    <meta charset="UTF-8">
+    <meta https-equiv="Pragma" content="no-cache">
+	<meta https-equiv="Cache-Control" content="no-cache">
+	<meta https-equiv="Expires" content="0">
+
+    <script type="text/javascript">
+        var Ext = Ext || {}; // Ext namespace won't be defined yet...
+
+        // This function is called by the Microloader after it has performed basic
+        // device detection. The results are provided in the "tags" object. You can
+        // use these tags here or even add custom tags. These can be used by platform
+        // filters in your manifest or by platformConfig expressions in your app.
+        //
+        Ext.beforeLoad = function (tags) {
+            var s = location.search,  // the query string (ex "?foo=1&bar")
+                profile;
+
+            // For testing look for "?classic" or "?modern" in the URL to override
+            // device detection default.
+            //
+            if (s.match(/\bclassic\b/)) {
+                profile = 'classic';
+            }
+            else if (s.match(/\bmodern\b/)) {
+                profile = 'modern';
+            }
+            // uncomment this if you have added native build profiles to your app.json
+            /*else if (tags.webview) {
+                if (tags.ios) {
+                    profile = 'ios';
+                }
+                // add other native platforms here
+            }*/
+            else {
+                //profile = tags.desktop ? 'classic' : 'modern';
+                profile = tags.phone ? 'modern' : 'classic';
+            }
+
+            Ext.manifest = profile; // this name must match a build profile name
+
+            // This function is called once the manifest is available but before
+            // any data is pulled from it.
+            //
+            //return function (manifest) {
+                // peek at / modify the manifest object
+            //};
+        };
+        
+//             Ext.Ajax.defaultHeaders = {  
+//                 'Request-By': 'Ext' //标识ajax请求  
+//             }; 
+        
+//         Ext.Ajax.on('requestcomplete',checkSessionStatus, this);
+//         function checkSessionStatus(conn,response,options){
+//             var json = Ext.decode(response.responseText);
+//             if(typeof json == 'object' 
+//                && json.timeout){
+//                Ext.Msg.alert("提示","登入超时,系统将自动跳转到登陆页面,请重新登入!",function(){
+//                    top.window.location.href = json.redirectUri;
+//                });
+//            }      
+//        };
+        var flag = 0;
+    </script>
+    
+    
+    <title>福建省公安机关执法执勤用车管理平台</title>
+    <!--script type="text/javascript" src="/carrental-portal/js/dataload.js"></script-->
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=lQKR6AOAxPrV4cCkzFAScYm0"></script>
+    <!--加载鼠标绘制工具-->
+    <script type="text/javascript" src="https://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js"></script>
+    <link rel="stylesheet" href="https://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css" />
+    <!--加载检索信息窗口-->
+    <script type="text/javascript" src="https://api.map.baidu.com/library/SearchInfoWindow/1.4/src/SearchInfoWindow_min.js"></script>
+    <link rel="stylesheet" href="https://api.map.baidu.com/library/SearchInfoWindow/1.4/src/SearchInfoWindow_min.css" />
+    <!--加载几何运算工具-->
+    <script type="text/javascript" src="https://api.map.baidu.com/library/GeoUtils/1.2/src/GeoUtils_min.js"></script>
+    
+    <!--加载压缩运算工具-->
+    <script type="text/javascript" src="resources/js/lz-string.min.js"></script>
+    <script type="text/javascript" src="resources/js/jquery-3.1.1.min.js"></script>
+
+    <script type="text/javascript" src='resources/js/moment.min.js'></script>
+    <script type="text/javascript" src='resources/js/fullcalendar.js'></script>
+    <script type="text/javascript" src='resources/js/BMapLib_GeoUtils.js'></script>
+    <script type="text/javascript" src='resources/js/es6-promise.min.js'></script>
+    <script type="text/javascript" src='resources/js/html2canvas.min.js'></script>
+    <script type="text/javascript" src='resources/js/jspdf.min.js'></script>
+    <!--<script type="text/javascript" src='resources/js/jspdf.debug.js'></script>-->
+
+
+    <!-- The line below must be kept intact for Sencha Cmd to build your application -->
+    <script id="microloader" data-app="6b4e395f-e7e5-4f59-94e2-1f036b63c901" type="text/javascript" src="bootstrap.js"></script>
+	
+	<link rel="shortcut icon" href="resources/images/icons/cmdt_sc_logo.ico" type="image/x-icon">
+	
+	<link rel="stylesheet" type="text/css" href="resources\css\icon.css" />
+    <link href='resources/css/fullcalendar.min.css' rel='stylesheet' />
+    <link href='resources/css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+</head>
+<body>
+
+
+
+
+</body>
+</html>

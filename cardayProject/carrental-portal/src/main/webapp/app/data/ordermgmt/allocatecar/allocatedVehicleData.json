@@ -1,0 +1,14 @@
+{
+    status: "success", 
+data: 
+                    { "carNum": "沪A11111", 
+           carBrand: "BMW", 
+           carModel: "X5", 
+           carType: '舒适型', 
+           seatNum: "5", 
+           displacement: "3.0T",
+           carColor: "黑色",
+           station: "长寿路停车场",
+           driverName:"张三",
+           driverPhone:"13333333333" }
+}

@@ -1,0 +1,8 @@
+{
+    success: true, 
+data: [
+                    {'type' : 'BMW','value' : 'bmw'},
+                    {'type' : 'BYD','value' : 'byd'},
+                    {'type' : '大众','value' : 'dz'}
+      ]
+}

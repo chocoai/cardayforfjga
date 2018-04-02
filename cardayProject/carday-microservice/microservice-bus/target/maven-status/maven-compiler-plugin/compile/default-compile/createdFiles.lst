@@ -1,0 +1,5 @@
+com\cmdt\carday\microservice\bus\event\PushMessageRemoteApplicationEvent.class
+com\cmdt\carday\microservice\bus\event\AlertUploadRemoteApplicationEvent.class
+com\cmdt\carday\microservice\bus\EnableCardayBus.class
+com\cmdt\carday\microservice\bus\CardayBusConfiguration.class
+com\cmdt\carday\microservice\bus\bean\PushMessage.class

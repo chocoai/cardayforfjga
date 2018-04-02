@@ -1,0 +1,26 @@
+{
+    status: "success", 
+data: 
+                    { "vehicleNumber": "沪A11111", 
+           vehicleBrand: "BMW", 
+           vehicleModel: "X5", 
+           vehicleType: '舒适型', 
+           vehicleIdentification: "LVSHCFAE2BF674676", 
+           theoreticalFuelCon: "10",
+           vehicleColor: "黑色",
+           seatNumber: "5",
+           vehicleOutput:"2.0T",
+           vehicleFuel:"93",
+           vehicleFromName:"歌华有线",
+           city:"上海",
+           arrangedOrgName:"市场部",
+           licenseType:"C1",
+           vehicleBuyTime:"2013-01-09",
+           insuranceExpiredate:"2016-01-09",
+           parkingSpaceInfo:"B-01-02-02",
+           vehiclePurpose:"机动用车",
+           deviceNumber:"232421342134",
+           simNumber:"345324523452345",
+           limitSpeed:"120"
+            }
+}

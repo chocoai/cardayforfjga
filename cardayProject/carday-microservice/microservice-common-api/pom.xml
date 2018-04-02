@@ -1,0 +1,88 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>carrental</groupId>
+        <artifactId>carday-microservice</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>microservice-common-api</artifactId>
+    <packaging>jar</packaging>
+
+    <name>microservice-common-api</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>carrental</groupId>
+            <artifactId>microservice-common-model</artifactId>
+        </dependency>
+        <!-- spring -->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework</groupId>-->
+            <!--<artifactId>spring-web</artifactId>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework</groupId>-->
+            <!--<artifactId>spring-webmvc</artifactId>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
+    </dependencies>
+    <build>
+        <finalName>microservice-common-api</finalName>
+        <filters>
+            <filter>env-config/${package.environment}/cr-service.properties</filter>
+        </filters>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>cr-local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <res_dir>env-config/cr-local</res_dir>
+            </properties>
+        </profile>
+        <profile>
+            <id>cr_test</id>
+            <properties>
+                <res_dir>env-config/cr-test</res_dir>
+            </properties>
+        </profile>
+        <profile>
+            <id>cr-uat</id>
+            <properties>
+                <res_dir>env-config/cr-uat</res_dir>
+            </properties>
+        </profile>
+        <profile>
+            <id>cr-prod</id>
+            <properties>
+                <res_dir>env-config/cr-prod</res_dir>
+            </properties>
+        </profile>
+        
+        <!-- new profiles for carday -->
+        <profile>
+            <id>cd-dev</id>
+            <properties>
+                <res_dir>env-config/cd-dev</res_dir>
+            </properties>
+        </profile>
+    </profiles>
+</project>

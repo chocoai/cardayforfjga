@@ -1,0 +1,187 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>carrental</groupId>
+        <artifactId>carday-microservice</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>carday-rt-data</artifactId>
+    <packaging>war</packaging>
+    <name>rt-data</name>
+
+    <dependencies>
+
+        <!-- module reference -->
+        <dependency>
+            <groupId>carrental</groupId>
+            <artifactId>microservice-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>carrental</groupId>
+            <artifactId>carrental-common</artifactId>
+        </dependency>
+
+        <!-- spring boot -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>org.springframework.boot</groupId>-->
+        <!--<artifactId>spring-boot-starter-data-redis</artifactId>-->
+        <!--</dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>android-json</artifactId>
+                    <groupId>com.vaadin.external.google</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
+
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+         <dependency> -->
+        <!-- <groupId>org.springframework.boot</groupId> -->
+        <!-- <artifactId>spring-boot-starter-log4j2</artifactId> -->
+        <!-- </dependency> -->
+
+        <!-- spring boot actuator endpoints -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-actuator</artifactId>
+        </dependency>
+
+        <!-- Bean Validation API support -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+        <!-- jedis -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+        </dependency>
+
+
+        <!-- cassandra drivers -->
+        <dependency>
+            <groupId>com.datastax.cassandra</groupId>
+            <artifactId>cassandra-driver-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.datastax.cassandra</groupId>
+            <artifactId>cassandra-driver-mapping</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.datastax.cassandra</groupId>
+            <artifactId>cassandra-driver-extras</artifactId>
+        </dependency>
+
+        <!-- cassandra jpa
+        <dependency>
+         <groupId>org.springframework.data</groupId>
+         <artifactId>spring-data-cassandra</artifactId>
+         <version>1.5.4.RELEASE</version>
+     </dependency>
+
+     <dependency>
+         <groupId>org.springframework.data</groupId>
+         <artifactId>spring-data-jpa</artifactId>
+     </dependency>-->
+
+    </dependencies>
+
+
+    <profiles>
+        <profile>
+            <id>cr-local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <res_dir>env-config/cr-local</res_dir>
+            </properties>
+        </profile>
+        <profile>
+            <id>cr_test</id>
+            <properties>
+                <res_dir>env-config/cr-test</res_dir>
+            </properties>
+        </profile>
+        <profile>
+            <id>cr-uat</id>
+            <properties>
+                <res_dir>env-config/cr-uat</res_dir>
+            </properties>
+        </profile>
+        <profile>
+            <id>cr-prod</id>
+            <properties>
+                <res_dir>env-config/cr-prod</res_dir>
+            </properties>
+        </profile>
+        
+        <!-- new profiles for carday -->
+        <profile>
+            <id>cd-dev</id>
+            <properties>
+                <res_dir>env-config/cd-dev</res_dir>
+            </properties>
+        </profile>
+    </profiles>
+
+    <build>
+        <finalName>/carday-rt-data</finalName>
+        <filters>
+            <filter>env-config/${package.environment}/config.properties</filter>
+        </filters>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

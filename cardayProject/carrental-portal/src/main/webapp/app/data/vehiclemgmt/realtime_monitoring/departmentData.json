@@ -1,0 +1,9 @@
+{
+    success: true, 
+data: [
+                    {'type' : '所有部门','value' : 'all'},
+                    {'type' : '研发','value' : 'yf'},
+                    {'type' : '市场','value' : 'sc'},
+                    {'type' : '产品管理部','value' : 'cp'},
+      ]
+}

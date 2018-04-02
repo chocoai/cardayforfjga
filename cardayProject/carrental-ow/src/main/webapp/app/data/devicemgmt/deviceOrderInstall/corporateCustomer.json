@@ -1,0 +1,21 @@
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1001,
+            "corporateCustomer": "中移德电"
+        },
+        {
+            "id": 1002,
+            "corporateCustomer": "首汽租车"
+        },
+        {
+            "id": 1003,
+            "corporateCustomer": "歌华有线"
+        },
+        {
+            "id": 1004,
+            "corporateCustomer": "中国移动"
+        },
+    ],
+}

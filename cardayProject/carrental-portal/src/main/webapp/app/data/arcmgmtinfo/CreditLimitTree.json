@@ -1,0 +1,50 @@
+{
+    "status": "success",
+    "children": [
+        {
+            "id": 73,
+            "text": "测试企业(E2E-用车)",
+            "parentId": null,
+            "children": [
+                {
+                    "id": 74,
+                    "text": "研发部",
+                    "parentId": null,
+                    "children": [],
+                    "leaf": true,
+                    "checked": null,
+                    "expanded": false,
+                    "availableCredit": 200,
+                    "limitedCredit": 1000
+                },
+                {
+                    "id": 75,
+                    "text": "市场部",
+                    "parentId": null,
+                    "children": [],
+                    "leaf": true,
+                    "checked": null,
+                    "expanded": false,
+                    "availableCredit": 300,
+                    "limitedCredit": 1000
+                },
+                {
+                    "id": 76,
+                    "text": "财务部",
+                    "parentId": null,
+                    "children": [],
+                    "leaf": true,
+                    "checked": null,
+                    "expanded": false,
+                    "availableCredit": 500,
+                    "limitedCredit": 1000
+                }
+            ],
+            "leaf": false,
+            "checked": null,
+            "expanded": true,
+            "availableCredit": 1000,
+            "limitedCredit": 5000
+        }
+    ]
+}

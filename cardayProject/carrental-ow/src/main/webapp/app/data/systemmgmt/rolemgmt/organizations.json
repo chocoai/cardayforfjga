@@ -1,0 +1,10 @@
+{
+"status":"success",
+"data":
+	[
+	{"id":1,"organizationName":"总公司","parentId":0,"parentIds":"0","status":"0","comments":null,"rootNode":true},
+	{"id":2,"organizationName":"分公司1","parentId":1,"parentIds":"0,1","status":"0","comments":null,"rootNode":false},
+	{"id":3,"organizationName":"分公司2","parentId":1,"parentIds":"0,1","status":"0","comments":null,"rootNode":false},
+	{"id":4,"organizationName":"分公司11","parentId":2,"parentIds":"0,1,2","status":"0","comments":null,"rootNode":false}
+	]
+}

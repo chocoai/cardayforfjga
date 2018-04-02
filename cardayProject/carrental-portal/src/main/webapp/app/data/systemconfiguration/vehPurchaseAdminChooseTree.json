@@ -1,0 +1,341 @@
+{
+    "children": [
+        {
+            "id": 73,
+            "text": "福建省公安厅",
+            "parentId": null,
+            "children": [
+                {
+                    "id": 3400,
+                    "text": "办公室",
+                    "parentId": null,
+                    "children": [],
+                    "leaf": true,
+                    "checked": null,
+                    "expanded": false,
+                    "level": 1
+                },
+                {
+                    "id": 3401,
+                    "text": "审计室",
+                    "parentId": null,
+                    "children": [
+                        {
+                            "id": 3500,
+                            "text": "赵处长",
+                            "parentId": null,
+                            "children": [],
+                            "leaf": true,
+                            "checked": null,
+                            "expanded": false,
+                            "level": 2
+                        },
+                    ],
+                    "leaf": false,
+                    "checked": null,
+                    "expanded": true,
+                    "level": 1
+                },
+                {
+                    "id": 3402,
+                    "text": "机关党委",
+                    "parentId": null,
+                    "children": [],
+                    "leaf": true,
+                    "checked": null,
+                    "expanded": false,
+                    "level": 1
+                },
+                {
+                    "id": 3403,
+                    "text": "纪委监察室",
+                    "parentId": null,
+                    "children": [],
+                    "leaf": true,
+                    "checked": null,
+                    "expanded": false,
+                    "level": 1
+                },
+                {
+                    "id": 3404,
+                    "text": "人事处",
+                    "parentId": null,
+                    "children": [
+                        {
+                            "id": 3501,
+                            "text": "王处长",
+                            "parentId": null,
+                            "children": [],
+                            "leaf": true,
+                            "checked": null,
+                            "expanded": false,
+                            "level": 2
+                        },
+                    ],
+                    "leaf": false,
+                    "checked": null,
+                    "expanded": true,
+                    "level": 1
+                },
+                {
+                    "id": 3405,
+                    "text": "教育处",
+                    "parentId": null,
+                    "children": [],
+                    "leaf": true,
+                    "checked": null,
+                    "expanded": false,
+                    "level": 1
+                },
+                {
+                    "id": 3406,
+                    "text": "政治部",
+                    "parentId": null,
+                    "children": [
+                        {
+                            "id": 3502,
+                            "text": "陈主任",
+                            "parentId": null,
+                            "children": [],
+                            "leaf": true,
+                            "checked": null,
+                            "expanded": false,
+                            "level": 2
+                        },
+                    ],
+                    "leaf": false,
+                    "checked": null,
+                    "expanded": true,
+                    "level": 1
+                },
+                {
+                    "id": 3407,
+                    "text": "宣传处",
+                    "parentId": null,
+                    "children": [
+                        {
+                            "id": 3503,
+                            "text": "李处长",
+                            "parentId": null,
+                            "children": [],
+                            "leaf": true,
+                            "checked": null,
+                            "expanded": false,
+                            "level": 2
+                        },
+                    ],
+                    "leaf": false,
+                    "checked": null,
+                    "expanded": true,
+                    "level": 1
+                },
+                {
+                    "id": 3408,
+                    "text": "离退休干部处",
+                    "parentId": null,
+                    "children": [],
+                    "leaf": true,
+                    "checked": null,
+                    "expanded": false,
+                    "level": 1
+                },
+                {
+                    "id": 3409,
+                    "text": "指挥情报中心",
+                    "parentId": null,
+                    "children": [],
+                    "leaf": true,
+                    "checked": null,
+                    "expanded": false,
+                    "level": 1
+                },
+                {
+                    "id": 3410,
+                    "text": "警务保障部",
+                    "parentId": null,
+                    "children": [
+                        {
+                            "id": 3504,
+                            "text": "徐主任",
+                            "parentId": null,
+                            "children": [],
+                            "leaf": true,
+                            "checked": null,
+                            "expanded": false,
+                            "level": 2
+                        },
+                    ],
+                    "leaf": false,
+                    "checked": null,
+                    "expanded": true,
+                    "level": 1
+                },
+                {
+                    "id": 3411,
+                    "text": "科技通信处",
+                    "parentId": null,
+                    "children": [],
+                    "leaf": true,
+                    "checked": null,
+                    "expanded": false,
+                    "level": 1
+                }, 
+                {
+                    "id": 3412,
+                    "text": "国保总队",
+                    "parentId": null,
+                    "children": [],
+                    "leaf": true,
+                    "checked": null,
+                    "expanded": false,
+                    "level": 1
+                }, 
+                {
+                    "id": 3413,
+                    "text": "警务督察总队",
+                    "parentId": null,
+                    "children": [],
+                    "leaf": true,
+                    "checked": null,
+                    "expanded": false,
+                    "level": 1
+                },             
+                {
+                    "id": 3414,
+                    "text": "现役办",
+                    "parentId": null,
+                    "children": [],
+                    "leaf": true,
+                    "checked": null,
+                    "expanded": false,
+                    "level": 1
+                },             
+                {
+                    "id": 3415,
+                    "text": "治安管理总队",
+                    "parentId": null,
+                    "children": [],
+                    "leaf": true,
+                    "checked": null,
+                    "expanded": false,
+                    "level": 1
+                },             
+                {
+                    "id": 3416,
+                    "text": "刑事侦查总队",
+                    "parentId": null,
+                    "children": [],
+                    "leaf": true,
+                    "checked": null,
+                    "expanded": false,
+                    "level": 1
+                },             
+                {
+                    "id": 3417,
+                    "text": "经济犯罪侦查总队",
+                    "parentId": null,
+                    "children": [],
+                    "leaf": true,
+                    "checked": null,
+                    "expanded": false,
+                    "level": 1
+                },             
+                {
+                    "id": 3418,
+                    "text": "技术侦查总队",
+                    "parentId": null,
+                    "children": [],
+                    "leaf": true,
+                    "checked": null,
+                    "expanded": false,
+                    "level": 1
+                },             
+                {
+                    "id": 3419,
+                    "text": "监所管理总队",
+                    "parentId": null,
+                    "children": [],
+                    "leaf": true,
+                    "checked": null,
+                    "expanded": false,
+                    "level": 1
+                },             
+                {
+                    "id": 3420,
+                    "text": "法制总队",
+                    "parentId": null,
+                    "children": [],
+                    "leaf": true,
+                    "checked": null,
+                    "expanded": false,
+                    "level": 1
+                },             
+                {
+                    "id": 3421,
+                    "text": "禁毒总队",
+                    "parentId": null,
+                    "children": [],
+                    "leaf": true,
+                    "checked": null,
+                    "expanded": false,
+                    "level": 1
+                },             
+                {
+                    "id": 3422,
+                    "text": "网安总队",
+                    "parentId": null,
+                    "children": [],
+                    "leaf": true,
+                    "checked": null,
+                    "expanded": false,
+                    "level": 1
+                },             
+                {
+                    "id": 3423,
+                    "text": "刑技总队",
+                    "parentId": null,
+                    "children": [],
+                    "leaf": true,
+                    "checked": null,
+                    "expanded": false,
+                    "level": 1
+                },             
+                {
+                    "id": 3424,
+                    "text": "警企办",
+                    "parentId": null,
+                    "children": [],
+                    "leaf": true,
+                    "checked": null,
+                    "expanded": false,
+                    "level": 1
+                },             
+                {
+                    "id": 3425,
+                    "text": "打私处",
+                    "parentId": null,
+                    "children": [],
+                    "leaf": true,
+                    "checked": null,
+                    "expanded": false,
+                    "level": 1
+                },             
+                {
+                    "id": 3426,
+                    "text": "福建省公安厅长乐国际机场公安局",
+                    "parentId": null,
+                    "children": [],
+                    "leaf": true,
+                    "checked": null,
+                    "expanded": false,
+                    "level": 1
+                }
+            ],
+            "leaf": false,
+            "checked": null,
+            "expanded": true,
+            "level": 0
+        }
+    ],
+    "status": "success"
+}

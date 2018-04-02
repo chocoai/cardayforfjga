@@ -1,0 +1,67 @@
+server:
+  port: 8080
+  contextPath: /geo-service
+  servlet-path: /services
+
+management:
+  security:
+    enabled: false
+
+#spring:
+#  jackson:
+#    date-format: yyyy-MM-dd HH:mm:ss.SSS
+#    serialization:
+#      write_dates_as_timestamps: false
+#  datasource:
+#    platform: postgres
+#    url: ${db.url}
+#    username: ${db.username}
+#    password: ${db.password}
+#    driverClassName: org.postgresql.Driver
+
+#kafkaProducer:
+#  brokers: ${kafka.brokers}
+#  topicDb: ${kafka.topic.db}
+#  topicGb: ${kafka.topic.gb}
+#  retries: ${kafka.producer.retries}
+#  refreshInterval: ${kafka.producer.topic.metadata.refresh.interval.ms}
+#  sendBufferBytes: ${kafka.producer.send.buffer.bytes}
+
+#authBuilder:
+#  username: ${basicauth.username}
+#  password: ${basicauth.password} 
+  
+#spring:
+#    data:
+#        rest:
+#            basePath: /services
+
+#cxf:
+#  path: /services
+#  servlet.init: 
+#    service-list-path: /info
+ 
+#cxf:
+#  path: /services
+#  servlet.init: 
+#    service-list-path: /info
+#  jaxrs:
+#    component-scan: true
+#    classes-scan-packages: org.apache.cxf.jaxrs.swagger,org.apache.cxf.metrics
+    
+#eureka:
+#  client:
+#    registerWithEureka: true
+#    serviceUrl:
+#      defaultZone: http://127.0.0.1:8761/eureka/
+#  instance:
+#    statusPageUrlPath: /services/helloservice/info
+#    healthCheckUrlPath: /system/health
+#    metadataMap:
+#      instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}} 
+#      servletPath: ${cxf.path}    
+      
+endpoints:
+  jmx:
+    enabled: true
+    unique-names: true

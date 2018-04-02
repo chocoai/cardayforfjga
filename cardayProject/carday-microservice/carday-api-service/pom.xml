@@ -1,0 +1,165 @@
+﻿<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>carrental</groupId>
+        <artifactId>carday-microservice</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>carday-api-service</artifactId>
+    <packaging>war</packaging>
+    <name>api-service</name>
+
+    <!-- Add typical dependencies for a web application -->
+    <dependencies>
+        
+
+        <!-- module reference -->
+        <dependency>
+            <groupId>carrental</groupId>
+            <artifactId>carrental-common</artifactId>
+        </dependency>
+         <dependency>
+            <groupId>carrental</groupId>
+            <artifactId>microservice-common-model</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>carrental</groupId>
+            <artifactId>microservice-common-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>carrental</groupId>
+            <artifactId>microservice-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.penggle</groupId>
+            <artifactId>kaptcha</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+        </dependency>
+
+
+        <!-- spring boot -->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-web</artifactId>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>org.springframework.boot</groupId>-->
+        <!--<artifactId>spring-boot-starter-data-redis</artifactId>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-test</artifactId>-->
+            <!--<scope>test</scope>-->
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<artifactId>android-json</artifactId>-->
+                    <!--<groupId>com.vaadin.external.google</groupId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        <!--</dependency>-->
+
+
+
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+         <dependency> -->
+        <!-- <groupId>org.springframework.boot</groupId> -->
+        <!-- <artifactId>spring-boot-starter-log4j2</artifactId> -->
+        <!-- </dependency> -->
+
+
+
+        <!-- kafka -->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+    </dependencies>
+
+    <!-- Package as war -->
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <filters>
+            <filter>env-config/${package.environment}/cr-service.properties</filter>
+        </filters>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>cr-local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <res_dir>env-config/cr-local</res_dir>
+            </properties>
+        </profile>
+        <profile>
+            <id>cr_test</id>
+            <properties>
+                <res_dir>env-config/cr-test</res_dir>
+            </properties>
+        </profile>
+        <profile>
+            <id>cr-uat</id>
+            <properties>
+                <res_dir>env-config/cr-uat</res_dir>
+            </properties>
+        </profile>
+        <profile>
+            <id>cr-prod</id>
+            <properties>
+                <res_dir>env-config/cr-prod</res_dir>
+            </properties>
+        </profile>
+        
+        <!-- new profiles for carday -->
+        <profile>
+            <id>cd-dev</id>
+            <properties>
+                <res_dir>env-config/cd-dev</res_dir>
+            </properties>
+        </profile>
+    </profiles>
+
+</project>

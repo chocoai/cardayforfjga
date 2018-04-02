@@ -1,0 +1,16 @@
+{
+    "data": {
+        "totalRows": 1,
+        "totalPages": 1,
+        "currentPage": 1,
+        "numPerPage": 10,
+        "resultList": [
+            {
+                "id": 101,
+                "patternName": "警牌审批",
+                "approvalRating": "4",
+            },
+        ]
+    },
+    "status": "success"
+}

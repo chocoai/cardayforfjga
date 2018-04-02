@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" name="${log.fileprefix}" packages="${log.packagename}">
+
+	<properties>
+		<property name="log_filename">${log.path}/${log.fileprefix}.log</property>
+		<property name="log_filepattern">${log.path}/$${date:yyyy-MM}/${log.fileprefix}-%d{yyyy-MM-dd}-%i.log.gz</property>
+		<property name="log_patternlayout">%-d{yyyy-MM-dd HH:mm:ss,SSS}  [ %t:%r ] - [ %p ]  %m%n</property>
+	</properties>
+
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${log_patternlayout}"/>
+            <ThresholdFilter level="${log.level}" onMatch="ACCEPT" onMismatch="DENY"/>
+        </Console>
+		<RollingFile  
+			name="logfile" 
+			filename="${log_filename}"
+			filepattern="${log_filepattern}">
+			<PatternLayout pattern="${log_patternlayout}" />
+			<ThresholdFilter level="${log.level}" onMatch="ACCEPT"	onMismatch="DENY" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="6" modulate="true"/>
+				<SizeBasedTriggeringPolicy size="200 MB" />
+			</Policies>
+			<DefaultRolloverStrategy>
+        		<Delete basePath="${log.path}" maxDepth="2">
+	          		<IfFileName glob="*/${log.fileprefix}-*.log.gz" />
+	          		<IfLastModified age="90d" />
+        		</Delete>
+      		</DefaultRolloverStrategy>
+		</RollingFile>
+	</Appenders>
+	
+	<Loggers>
+		<Logger name="${log.packagename}" level="${log.level}" />
+		<Root level="${log.root.level}">
+			<AppenderRef ref="${log.appender}" />
+		</Root>
+	</Loggers>
+</Configuration>

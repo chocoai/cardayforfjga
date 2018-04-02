@@ -1,0 +1,53 @@
+{
+    "success": true,
+    "data": [
+        {
+            "stationName": "中部创意大厦站",
+            "city": "武汉",
+            "position": "武汉市洪山区中部创意大厦",
+            "radius": "1",
+            "assignedVehicleNumber":"3",
+            "carNumber": "10"
+        },
+        {
+            "stationName": "软件园站",
+            "city": "武汉",
+            "position": "武汉市洪山区光谷软件园",
+            "radius": "1.5",
+            "assignedVehicleNumber":"15",
+            "carNumber": "20"
+        },
+        {
+            "stationName": "未来科技城站",
+            "city": "武汉",
+            "position": "武汉市东湖高新区未来科技城",
+            "radius": "3",
+            "assignedVehicleNumber":"21",
+            "carNumber": "30"
+        },
+        {
+            "stationName": "金融港站",
+            "city": "武汉",
+            "position": "武汉市东湖高新区金融港",
+            "radius": "2.5",
+            "assignedVehicleNumber":"4",
+            "carNumber": "8"
+        },
+        {
+            "stationName": "汉正街站",
+            "city": "武汉",
+            "position": "武汉市江岸区汉正街",
+            "radius": "1.5",
+            "assignedVehicleNumber":"8",
+            "carNumber": "10"
+        },
+        {
+            "stationName": "东风公司站",
+            "city": "武汉",
+            "position": "武汉市汉阳区神龙汽车",
+            "radius": "3.0",
+            "assignedVehicleNumber":"15",
+            "carNumber": "25"
+        }
+    ]
+}

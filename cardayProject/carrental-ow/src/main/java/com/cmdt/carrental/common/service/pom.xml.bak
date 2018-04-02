@@ -1,0 +1,336 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+	<parent>
+        <groupId>carrental</groupId>
+		<artifactId>carrental-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../carrental-parent/pom.xml</relativePath>
+    </parent>
+    <artifactId>carrental-ow</artifactId>
+    <packaging>jar</packaging>
+
+    <dependencies>
+    	
+    	<!-- module reference -->
+        <dependency>
+	          <groupId>carrental</groupId>
+			  <artifactId>carrental-common</artifactId>
+			  <version>1.0.0-SNAPSHOT</version>
+	     </dependency>
+	     
+        <!-- 单元测试 -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+        </dependency>
+
+        <!-- shiro -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-ehcache</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-quartz</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+        </dependency>
+
+        <!-- mysql -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+        </dependency>
+
+        <!-- aspectj相关jar包-->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+        </dependency>
+
+		<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+        </dependency>
+      	
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
+
+       <!-- jsp jstl -->
+       <!-- <dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+ 			<scope>provided</scope> 
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jsp-api</artifactId>
+			<scope>provided</scope>
+		</dependency> -->
+		
+		<!-- fasterxml -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+		
+		<!-- CXF Restful -->	
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+		</dependency>
+			
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-transports-http</artifactId>
+		</dependency>
+		
+		<dependency>
+		    <groupId>javax.ws.rs</groupId>
+		    <artifactId>jsr311-api</artifactId>
+	    </dependency>
+	    
+	    <!-- Bean validation -->
+		<dependency>
+		    <groupId>javax.validation</groupId>
+		    <artifactId>validation-api</artifactId>
+		</dependency>
+		
+		<dependency>
+		    <groupId>javax.el</groupId>
+		    <artifactId>javax.el-api</artifactId>
+		    <!-- use 3.0-b02 version for Java 6 -->
+		</dependency>
+		<dependency>
+		    <groupId>org.glassfish</groupId>
+		    <artifactId>javax.el</artifactId>
+		    <!-- use 3.0-b01 version for Java 6 -->
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		</dependency>
+		
+		<!-- Jackson -->
+	   <dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-smile</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.jaxrs</groupId>
+			<artifactId>jackson-jaxrs-json-provider</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.module</groupId>
+			<artifactId>jackson-module-jaxb-annotations</artifactId>
+		</dependency>
+		
+		 <!--  postgresql -->
+        <dependency>
+			<groupId>net.postgis</groupId>
+			<artifactId>postgis-jdbc</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>ch.qos.logback</groupId>
+					<artifactId>logback-classic</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>ch.qos.logback</groupId>
+					<artifactId>logback-core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+           <dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>
+		
+        <dependency>  
+            <groupId>taobao-sdk-java</groupId>
+			  <artifactId>taobao-sdk-java</artifactId>
+			  <version>auto_1455552377940-20170318</version>
+            <scope>system</scope>  
+            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/taobao-sdk-java-auto_1455552377940-20170318.jar</systemPath>  
+        </dependency>
+        
+		<!-- jedis -->
+		<dependency>
+	        <groupId>redis.clients</groupId>
+	        <artifactId>jedis</artifactId>
+		</dependency>
+		
+		<!-- kaptcha -->  
+		<dependency>
+		    <groupId>com.github.penggle</groupId>
+		    <artifactId>kaptcha</artifactId>
+		</dependency>
+    </dependencies>
+
+	<profiles>
+		<profile>
+			<id>cr-local</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<res_dir>env-config/cr-local</res_dir>
+				<tomcat_url>http://localhost:8080/manager/text</tomcat_url>
+				<sencha_cmd>sencha</sencha_cmd>
+				<sencha_env>development</sencha_env>
+				<app_name>Admin</app_name>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.tomcat.maven</groupId>
+						<artifactId>tomcat7-maven-plugin</artifactId>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>cr_test</id>
+			<properties>
+				<res_dir>env-config/cr-test</res_dir>
+				<tomcat_url>http://as-tomcat-cluster04.virtueit.net:8110/manager/text</tomcat_url>
+				<sencha_cmd>/opt/sencha/bin/Sencha/Cmd/sencha</sencha_cmd>
+				<sencha_env>production</sencha_env>
+				<app_name>Admin</app_name>
+				<webapp_exclude>.sencha/**,app/**,classic/**,css/**,ext/**,images/**,js/**,modern/**,overrides/**,packages/**,resources/**,sass/**/,.jshintrc,app.js,app.json,bootstrap.css,bootstrap.js,build.xml,classic.json,classic.jsonp,modern.json,modern.jsonp,Readme.md,workspace.json</webapp_exclude>
+			</properties>
+		</profile>
+		<profile>
+			<id>cr-uat</id>
+			<properties>
+				<res_dir>env-config/cr-uat</res_dir>
+				<tomcat_url>http://as-tomcat-cluster01.virtueit.net:8110/manager/text</tomcat_url>
+				<sencha_cmd>sencha</sencha_cmd>
+				<sencha_env>production</sencha_env>
+				<app_name>Admin</app_name>
+				<webapp_exclude>.sencha/**,app/**,classic/**,css/**,ext/**,images/**,js/**,modern/**,overrides/**,packages/**,resources/**,sass/**/,.jshintrc,app.js,app.json,bootstrap.css,bootstrap.js,build.xml,classic.json,classic.jsonp,modern.json,modern.jsonp,Readme.md,workspace.json</webapp_exclude>
+			</properties>
+		</profile>
+		<profile>
+			<id>cr-prod</id>
+			<properties>
+				<res_dir>env-config/cr-prod</res_dir>
+				<tomcat_url>http://as-tomcat-cluster01.virtueit.net:8110/manager/text</tomcat_url>
+				<sencha_cmd>sencha</sencha_cmd>
+				<sencha_env>production</sencha_env>
+				<app_name>Admin</app_name>
+				<webapp_exclude>.sencha/**,app/**,classic/**,css/**,ext/**,images/**,js/**,modern/**,overrides/**,packages/**,resources/**,sass/**/,.jshintrc,app.js,app.json,bootstrap.css,bootstrap.js,build.xml,classic.json,classic.jsonp,modern.json,modern.jsonp,Readme.md,workspace.json</webapp_exclude>
+			</properties>
+		</profile>
+	</profiles>
+	
+	<build>
+	<finalName>datafeed_realtime</finalName>
+	<!-- <finalName>datafeed_trip</finalName> -->
+	<filters>
+		<filter>env-config/${package.environment}/ow-portal.properties</filter>
+	</filters>
+	<resources>
+		<resource>
+			<directory>src/main/resources</directory>
+			<filtering>true</filtering>
+		</resource>
+	</resources>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.4.3</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<transformers>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>com.cmdt.carrental.common.service.DataFeed_RealTimeData</mainClass>
+									<!-- <mainClass>com.cmdt.carrental.common.service.DataFeed_Trip</mainClass> -->
+								</transformer>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+									<resource>META-INF/spring.handlers</resource>
+								</transformer>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+									<resource>META-INF/spring.schemas</resource>
+								</transformer>
+							</transformers>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+	
+</project>

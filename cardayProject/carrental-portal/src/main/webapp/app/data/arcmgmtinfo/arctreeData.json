@@ -1,0 +1,22 @@
+{"success": true,"children":
+[{
+            			id : '1',
+            			text : '中移德电',
+            			leaf : false,
+            			children : [ {
+            				id : '11',
+            				text : '代表处',
+            				leaf : true
+            			}, {
+            				id : '12',
+            				text : '市场部',
+            				leaf : true
+            			}, {
+            				id : '13',
+            				text : '研发部',
+            				leaf : true
+            			} ]
+}]
+}
+
+ 

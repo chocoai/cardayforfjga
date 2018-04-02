@@ -1,0 +1,16 @@
+{
+      "status": true,
+      "data": [{
+            "eventType": "OVERSPEED",
+            "isEnable": true,
+          },{
+            "eventType": "OUTBOUND",
+            "isEnable": true,
+          },{
+            "eventType": "VEHICLEBACK",
+            "isEnable": false,
+          },{
+            "eventType": "VIOLATE",
+            "isEnable": true,
+          }]
+}

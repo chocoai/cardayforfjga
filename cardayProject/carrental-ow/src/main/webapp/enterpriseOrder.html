@@ -1,0 +1,678 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="resources/js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="resources/js/jquery.params.js"></script>
+    <title>企业订单管理</title>
+</head>
+<body>
+<div class="wrap">
+    <div class="searchForm">
+        <div class="orderId">
+            <div class="text">订单号：</div>
+            <div class="input"><input type="text" id="orderId" placeholder="请输入订单号" /></div>
+        </div>
+        <div class="source">
+            <div class="text">渠道名称：</div>
+            <div class="input">
+                <select name="" id="source">
+                    <!--<option value="">所有</option>-->
+                    <option value="1" selected>北京移动</option>
+                </select>
+            </div>
+        </div>
+        <div class="status">
+            <div class="text">订单确认状态：</div>
+            <div class="input">
+                <select name="" id="status">
+                    <option value="" selected>所有</option>
+                    <option value="0,0">未确认</option>
+                    <option value=",2">确认失败</option>
+                    <option value="fail,1">已确认（订购失败）</option>
+                    <option value="success,1">已确认（订购成功）</option>
+                </select>
+            </div>
+        </div>
+        <div class="orderTime">
+            <div class="text">订购时间：</div>
+            <div class="input">
+                <input type="date" id="orderTimeFrom" /> ~ <input type="date" id="orderTimeTo" />
+            </div>
+        </div>
+        <div class="orderFee">
+            <div class="text">订单费用：</div>
+            <div class="input">
+                <input type="text" id="orderFeeMin" onkeyup="this.value=this.value.replace(/[^\d]/g,'') " /> ~ <input type="text" id="orderFeeMax" onkeyup="this.value=this.value.replace(/[^\d]/g,'') " />
+            </div>
+        </div>
+        <div class="submit">
+            <input type="button" id="submit" value="查询"/>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="title">
+            <div class="text">企业订单列表</div>
+        </div>
+        <div class="content">
+            <div class="header">
+                <div class="id">编号</div>
+                <div class="source">渠道名称</div>
+                <div class="ecCode">客户编码</div>
+                <div class="ecName">客户名称</div>
+                <div class="orderId">订单号</div>
+                <div class="orderTime">订购时间</div>
+                <div class="feeName">资费名称</div>
+                <div class="unitPrice">资费单价</div>
+                <div class="orderNum">订购数量</div>
+                <div class="orderFee">订单费用</div>
+                <div class="validity">有效期(月)</div>
+                <div class="remark">订单备注</div>
+                <div class="conResult">订单确认状态</div>
+                <div class="operate">操作</div>
+                <div class="clear"></div>
+            </div>
+            <div class="body">
+
+            </div>
+        </div>
+        <div class="page">
+            <div class="firstPage">&lt;&lt;</div>
+            <div class="prePage">&lt;</div>
+            <div>|</div>
+            <div class="nowPage"> 第 <input type="text" id="nowPage" value="1"> 页，</div>
+            <div class="maxPage">共<span id="maxPage"></span>页 </div>
+            <div>|</div>
+            <div class="nextPage">&gt;</div>
+            <div class="lastPage">&gt;&gt;</div>
+            <div class="refresh"></div>
+            <div class="pageInfo">第<span id="recordMin"></span> - <span id="recordMax"></span>条记录，共<span id="recordTotal"></span>条记录</div>
+        </div>
+    </div>
+</div>
+<div class="window">
+    <div class="title">订单详情</div>
+    <div class="body">
+        <div class="homeOfficeId">
+            <div class="text">客户归属局ID</div>
+            <div class="value"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="homeOfficeName">
+            <div class="text">客户归属局</div>
+            <div class="value"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="ecCode">
+            <div class="text">客户编码</div>
+            <div class="value"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="ecName">
+            <div class="text">客户名称</div>
+            <div class="value"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="orderId">
+            <div class="text">订单号</div>
+            <div class="value"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="orderTime">
+            <div class="text">订购时间</div>
+            <div class="value"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="proCode">
+            <div class="text">产品编号</div>
+            <div class="value"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="orderNum">
+            <div class="text">订购数量</div>
+            <div class="value"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="feeCode">
+            <div class="text">资费编号</div>
+            <div class="value"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="feeName">
+            <div class="text">资费名称</div>
+            <div class="value"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="unitPrice">
+            <div class="text">资费单价</div>
+            <div class="value"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="orderFee">
+            <div class="text">订单费用</div>
+            <div class="value"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="feePeriod">
+            <div class="text">订单周期</div>
+            <div class="value"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="validity">
+            <div class="text">有效期(月)</div>
+            <div class="value"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="prePay">
+            <div class="text">预付时长</div>
+            <div class="value"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="remark">
+            <div class="text">订单备注</div>
+            <div class="value"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="feeProList">
+            <div class="text">收费项目列表</div>
+            <div class="value">--</div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="close">
+        <input type="button" id="close" value="关闭" />
+    </div>
+</div>
+<div class="confirm">
+    备注信息<br /><textarea id="confirmText"></textarea>
+    <br />
+    <input type="button" id="confirmOk" value="确认" />
+    <input type="button" id="confirmCancel" value="取消" />
+</div>
+<style>
+    *{
+        font-size:14px;
+        font-family:"微软雅黑";
+    }
+    body{
+        margin:0;
+        text-align: center;
+    }
+    .clear{
+        clear:both !important;
+    }
+    .wrap{
+        width:1570px;
+        height:600px;
+        position: absolute;
+        /*border:1px solid #000;*/
+    }
+    .searchForm{
+        width:1570px;
+        height:50px;
+        /*border:1px solid #ccc;*/
+    }
+    .searchForm div{
+        float:left;
+        height:35px;
+        line-height:35px;
+    }
+    .searchForm>div{
+        margin-right:20px;
+    }
+    .searchForm input {
+        height:25px;
+        width:120px;
+        line-height:25px;
+        vertical-align: middle;
+        margin-top:2px;
+    }
+    .searchForm select{
+        height:30px;
+        line-height:30px;
+        vertical-align: middle;
+        margin-top:3px;
+    }
+    .searchForm #submit{
+        height:30px;
+        width:50px;
+        margin-top:5px;
+        background-color: rgb(13,133,202);
+        border:0;
+        color:#FFF;
+    }
+    .grid{
+        width:1570px;
+        /*height:495px;*/
+        border:2px solid rgb(13,133,202);
+    }
+    .grid .title{
+        height:40px;
+        line-height:40px;
+        background-color: rgb(13,133,202);
+    }
+    .grid .title .text{
+        color:#FFF;
+        padding-left:10px;
+        text-align:left;
+        font-size:16px;
+    }
+    .grid .content{
+        /*height:407px;*/
+    }
+    .grid .content .header>div:not(.clear){
+        border:1px solid #ccc;
+    }
+    .grid .content .body>div:not(.clear){
+        border:1px solid #eee;
+    }
+    .grid .content .header>div:not(.clear),.grid .content .body>div:not(.clear){
+        float: left;
+        border-collapse:collapse;
+        height:35px;
+        line-height:35px;
+        padding:0px 5px 0px 5px;
+        margin-right:-1px;
+        overflow: hidden;
+        text-align:center;
+    }
+    /*列宽定义*/
+    .grid .content .id{width:50px;}
+    .grid .content .source{width:75px;}
+    .grid .content .ecCode{width:125px;}
+    .grid .content .ecName{width:90px;}
+    .grid .content .orderId{width:210px;}
+    .grid .content .orderTime{width:85px;}
+    .grid .content .feeName{width:75px;}
+    .grid .content .unitPrice{width:75px;}
+    .grid .content .orderNum{width:75px;}
+    .grid .content .orderFee{width:75px;}
+    .grid .content .validity{width:100px;}
+    .grid .content .remark{width:75px;}
+    .grid .content .conResult{width:150px;}
+    .grid .content .operate{width:155px;}
+
+    .grid .content .body .orderId{
+        cursor:pointer;
+        color:#00b0DD;
+    }
+    .grid .content .operate input{
+        margin:6px 4px 0px 4px;
+        background-color:rgb(13,133,202);
+        color:#FFF;
+        border:0;
+        width:65px;
+        height:23px;
+        box-shadow: 1px 1px 1px #888888;
+    }
+    .page{
+        width:1570px;
+        height:45px;
+        color:#999;
+        font-size:12px;
+    }
+    .page>div{
+        float:left;
+        /*border:1px solid #ccc;*/
+        height:35px;
+        line-height:35px;
+        margin:5px 0px 5px 0px;
+    }
+    .page>div:hover{
+        background-color:#eee;
+    }
+    .page .firstPage{
+        width:40px;
+    }
+    .page .prePage{
+        width:50px;
+    }
+    .page .nowPage{
+        width:130px;
+        color:#000;
+    }
+    .page .nowPage input{
+        width:50px;
+        height:30px;
+        text-align:center;
+        margin:0px 5px 0px 5px;
+        border:1px solid #ccc;
+    }
+    .page .maxPage{
+        width:50px;
+        color:#000;
+    }
+    .page .nextPage{
+        width:50px;
+    }
+    .page .lastPage{
+        width:50px;
+    }
+    .page .refresh{
+        width:50px;
+    }
+    .page .pageInfo{
+        float:right;
+        width:250px;
+        color:#000;
+    }
+
+    .window{
+        margin-left:350px;
+        margin-top:20px;
+        display:none;
+        position: absolute;
+        z-index:100;
+        height:600px;
+        width:500px;
+        background-color: #FFF;
+        border:2px solid rgb(13,133,202);
+    }
+    .window .title{
+        height:40px;
+        line-height:40px;
+        background-color: rgb(13,133,202);
+        color:#FFF;
+        text-align: left;
+        padding-left:10px;
+        font-size:16px;
+    }
+    .window .body{
+        margin-top:5px;
+        height:520px;
+        overflow-y: auto;
+    }
+    .window .body>div>div{
+        float:left;
+        height:35px;
+        line-height:35px;
+    }
+    .window .body>div .text{
+        width:150px;
+        text-align:left;
+        margin-left:50px;
+    }
+    .window .body>div .value{
+        width:200px;
+        text-align:left;
+        margin-left:50px;
+    }
+    .window .close{
+        height:35px;
+    }
+    .window .close input{
+        border:0;
+        background-color: rgb(13,133,202);
+        color:#FFF;
+        width:60px;
+        height:30px;
+        box-shadow: 1px 1px 1px #888888;
+    }
+    .confirm{
+        margin-left:450px;
+        margin-top:120px;
+        display:none;
+        position: absolute;
+        z-index:200;
+        height:300px;
+        width:400px;
+        background-color: #FFF;
+        border:2px solid rgb(13,133,202);
+        padding-top:10px;
+        font-size:20px;
+    }
+    .confirm #confirmText{
+        height:200px;
+        width:300px;
+        margin-top:10px;
+        font-size:16px;
+    }
+    .confirm input{
+        border:0;
+        background-color: rgb(13,133,202);
+        color:#FFF;
+        width:60px;
+        height:30px;
+        box-shadow: 1px 1px 1px #888888;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function(){
+        /*函数声明区域*/
+        var api_url = 'https://www.car-day.cn/boss-order/ws/boss/';
+//        var api_url = 'https://uat.car-day.cn/boss-order/ws/boss/';
+//        var api_url ='http://120.204.115.238:8080/boss-order/ws/boss/';
+//        var api_url = 'http://172.16.1.114:8888/boss-order/ws/boss/';
+        var pageLimit = 10;
+        var currentPage = 1;
+        var conResult = "";
+        var orderId = "";
+        //获取订单列表
+        var getOrderList = function(page){
+            page==undefined?page=currentPage:currentPage=page;
+            $(".page .nextPage,.page .lastPage,.page .firstPage,.page .prePage").css("color","#999").unbind();
+            $(".page").hide();
+            $.ajax({
+                type:"POST",
+                dataType:"json",
+                contentType: "application/json; charset=utf-8",
+                url: api_url + "/boss-order/ws/boss/internal/order/"+page+"/"+pageLimit+"/query",
+                data: JSON.stringify({
+                    "orderId":$("#orderId").val(),
+                    "source":$("#source").val(),
+                    "status":$("#status").val(),
+                    "orderTimeFrom":new Date($("#orderTimeFrom").val().replace(/-/g,'/')).getTime(),
+                    "orderTimeTo":new Date($("#orderTimeTo").val().replace(/-/g,'/')).getTime(),
+                    "orderFeeMin":$("#orderFeeMin").val(),
+                    "orderFeeMax":$("#orderFeeMax").val()
+                }),
+                success:function (response) {
+                    $(".page").show();
+                    $(".content>.body").empty();
+                    $("#nowPage").val(response.result.page);
+                    $("#maxPage").html(response.result.totalPage);
+                    $("#recordMin").html((response.result.page-1)*response.result.limit+1);
+                    $("#recordMax").html((response.result.page-1)*response.result.limit+response.result.dataList.length);
+                    $("#recordTotal").html(response.result.totalRows);
+                    if(response.result.totalPage==1){
+                        //如果只有一页，什么都不干
+                    }else{//其实下面的写反了但是懒得改了...
+                        //如果页数>1
+                        if(response.result.page==1){
+                            //如果当前是第一页，修改下一页和最后一页的样式
+                            console.log('当前是第一页')
+                            $(".page .nextPage,.page .lastPage").css("color","#000");
+                            $(".page .nextPage").click(function(){
+                                getOrderList(response.result.page+1);
+                            });
+                            $(".page .lastPage").click(function(){
+                                getOrderList(response.result.totalPage);
+                            });
+                        }else if(response.result.page==response.result.totalPage){
+                            //如果当前是最后一页，修改前一页和第一页样式
+                            $(".page .prePage,.page .firstPage").css("color","#000");
+                            $(".page .prePage").click(function(){
+                                getOrderList(response.result.page-1);
+                            });
+                            $(".page .firstPage").click(function(){
+                                getOrderList(1);
+                            });
+                        }else{
+                            $(".page .nextPage,.page .lastPage").css("color","#000");
+                            $(".page .prePage,.page .firstPage").css("color","#000");
+                            $(".page .nextPage").click(function(){
+                                getOrderList(response.result.page+1);
+                            });
+                            $(".page .lastPage").click(function(){
+                                getOrderList(response.result.totalPage);
+                            });
+                            $(".page .prePage").click(function(){
+                                getOrderList(response.result.page-1);
+                            });
+                            $(".page .firstPage").click(function(){
+                                getOrderList(1);
+                            });
+                        }
+                    }
+
+
+                    $(response.result.dataList).each(function(i,val){
+                        val.source=="1"?val.source="北京移动":"";
+                        val.orderTime==undefined?val.orderTime="":"";
+                        val.remark==undefined?val.remark="":"";
+                        var conResultName = "";
+                        switch(val.conResult){
+                            case "0,0":
+                                conResultName = "未确认";
+                                break;
+                            case "success,2":
+                                conResultName = "确认失败";
+                                break;
+                            case "fail,2":
+                                conResultName = "确认失败";
+                                break;
+                            case "fail,1":
+                                conResultName = "已确认（订购失败）";
+                                break;
+                            case "success,1":
+                                conResultName = "已确认（订购成功）";
+                                break;
+                            default:
+                                conResultName = "状态错误";
+                                break;
+                        }
+                        $('<div class="id">'+val.id+'</div><div class="source">'+val.source+'</div><div class="ecCode">'+val.ecCode+'</div><div class="ecName">'+val.ecName+'</div><div class="orderId" id="detail_'+val.id+'">'+val.orderId+'</div><div class="orderTime">'+new Date(parseInt(val.orderTime)).toLocaleString().replace(/:\d{1,2}$/,' ')+'</div><div class="feeName">'+val.feeName+'</div><div class="unitPrice">'+val.unitPrice+'</div><div class="orderNum">'+val.orderNum+'</div><div class="orderFee">'+val.orderFee+'</div><div class="validity">'+val.validity+'</div><div class="remark">'+val.remark+'</div><div class="conResult">'+conResultName+'</div><div class="operate"><input type="button" id="confirm_1_'+val.id+'" value="确认订购"/><input type="button" id="confirm_2_'+val.id+'" value="取消订购"/></div><div class="clear"></div>').appendTo(".grid .content .body");
+//                        if(1){
+                        if(val.conResult=="fail,1"||val.conResult=="success,1"){
+                            $("#confirm_1_"+val.id).css("background-color","#CCC");
+                            $("#confirm_2_"+val.id).css("background-color","#CCC");
+                        }else{
+                            $("#confirm_1_"+val.id).click(function(){
+                                confirmOrder(this.id.substring(8,9),this.id.substring(10));
+                            });
+                            $("#confirm_2_"+val.id).click(function(){
+                                confirmOrder(this.id.substring(8,9),this.id.substring(10));
+                            });
+                        }
+                    });
+                    bindAfterAppend();
+                }
+            })
+        };
+        //获取订单详情
+        var getOrderDetail = function(id){
+            $(".window").show();
+            $.ajax({
+                type:"GET",
+                dataType:"json",
+                contentType: "application/json; charset=utf-8",
+                url: api_url + "/boss-order/ws/boss/internal/order/"+id+"/detail",
+                success:function (response) {
+//                    console.log(response);
+                    var val = response.result;
+                    $(".homeOfficeId>.value").html(val.homeOfficeId);
+                    $(".homeOfficeName>.value").html(val.homeOfficeName);
+                    $(".ecCode>.value").html(val.ecCode);
+                    $(".ecName>.value").html(val.ecName);
+                    $(".orderId>.value").html(val.orderId);
+                    $(".orderTime>.value").html(new Date(parseInt(val.orderTime)).toLocaleString().replace(/:\d{1,2}$/,' '));
+                    $(".proCode>.value").html(val.proCode);
+                    $(".orderNum>.value").html(val.orderNum);
+                    $(".feeCode>.value").html(val.feeCode);
+                    $(".feeName>.value").html(val.feeName);
+                    $(".unitPrice>.value").html(val.unitPrice);
+                    $(".orderFee>.value").html(val.orderFee);
+                    $(".feePeriod>.value").html(val.feePeriod);
+                    $(".validity>.value").html(val.validity);
+                    $(".prePay>.value").html(val.prePay);
+                    $(".remark>.value").html(val.remark);
+                    $(val.feeProList).each(function(i,v){
+                        $("<div class='feeProList'><div class='text'>项目编号</div><div class='value'>"+v.proCode+"</div><div class='clear'></div></div><div class='feeProList'><div class='text'>项目名称</div><div class='value'>"+v.proName+"</div><div class='clear'></div></div><div class='feeProList'><div class='text'>项目单位</div><div class='value'>"+v.proUnit+"</div><div class='clear'></div></div><div class='feeProList'><div class='text'>项目数量</div><div class='value'>"+v.proNum+"</div><div class='clear'></div></div>").appendTo(".window .body");
+                    });
+                }
+            })
+        };
+        //确认订单
+        var confirmOrder = function(c,i){
+            $("#confirmText").val("");
+            c=="1"?c="success":c="fail";
+            conResult = c;
+            id = i;
+            $(".confirm").show();
+//
+
+        };
+        /*事件绑定区域*/
+        //查询按钮事件
+        $("#submit").click(function(){
+            getOrderList(1);
+        });
+
+        //关闭弹窗
+        $("#close").click(function(){
+            $(".window").hide();
+        });
+
+        $("#nowPage").focus(function(){
+            $(this).select();
+        }).blur(function(){
+            if(parseInt($(this).val()) <= parseInt($("#maxPage").html()) && parseInt($(this).val()) > 0){
+//                alert('翻页');
+                getOrderList($(this).val());
+            }else{
+//                alert('越界');
+            }
+        });
+
+        //确认提交
+        $("#confirmOk").click(function(){
+            $.ajax({
+                type:"POST",
+                dataType:"json",
+                contentType: "application/json; charset=utf-8",
+                url: api_url + "/boss-order/ws/boss/internal/order/confirm",
+                data: JSON.stringify({
+                    "localOrderId":id,
+                    "userName":"User",
+                    "conResult":conResult,
+                    "conNote":$("#confirmText").val()
+                }),
+                success:function (e) {
+                    $(".confirm").hide();
+                    getOrderList(currentPage);
+                    if(e.resultCode!="200"){
+                        alert(e.resultMsg[0]);
+                    }
+                }
+            })
+        });
+
+        //取消提交
+        $("#confirmCancel").click(function(){
+            $(".confirm").hide();
+        });
+
+        //绑定入口
+        function bindAfterAppend(){
+//            confirmButtonBind();
+            orderIdClickBind();
+        }
+
+        //绑定确认、取消按钮事件
+        function confirmButtonBind(){
+            $(".body input").click(function(){
+                confirmOrder(this.id.substring(8,9),this.id.substring(10));
+            })
+        }
+        //订单号点击绑定
+        function orderIdClickBind(){
+            $(".body .orderId").click(function(){
+                getOrderDetail(this.id.substring(7));
+            })
+        }
+        /*start*/
+        getOrderList();
+    })
+</script>
+</body>
+</html>

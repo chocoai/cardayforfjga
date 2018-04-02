@@ -1,0 +1,15 @@
+{
+    status: "success", 
+data: 
+    {currentMiles : "100",
+    currentOilwear : "1000",
+    preMiles : "100", 
+    preOilwear : "1000",
+    weekMiles : "100",
+    weekOilwear:"1000",
+    monthMiles:"100",
+    monthOilwear:"1000",
+    totalMiles:"100",
+    totalOilwear:"1000"}
+      
+}

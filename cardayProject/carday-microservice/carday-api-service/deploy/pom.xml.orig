@@ -1,0 +1,822 @@
+<<<<<<< HEAD:carday-api-service/deploy/pom.xml
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>carrental</groupId>
+	<version>2.0.0-20170714</version>
+	<packaging>jar</packaging>
+	<artifactId>api-service</artifactId>
+	<name>api-service</name>
+
+	<properties>
+		<tomcat.version>2.2</tomcat.version>
+		<jsch.version>0.1.54</jsch.version>
+		<ant.jsch.version>1.6.5</ant.jsch.version>
+		<jdk.version>1.8</jdk.version>
+		<maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>cr-local</id>
+			<build>
+				<finalName>${project.artifactId}</finalName>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.tomcat.maven</groupId>
+						<artifactId>tomcat7-maven-plugin</artifactId>
+						<version>${tomcat.version}</version>
+					</plugin>
+				</plugins>
+			</build>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		
+		<!-- 
+		<profile>
+			<id>carrental_dev</id>
+			<build>
+				<finalName>${project.artifactId}</finalName>
+				<resources>
+					<resource>
+						<directory>env-config/cr-test</directory>
+					</resource>
+				</resources>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<version>2.3</version>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>copy</goal>
+								</goals>
+								<configuration>
+									<artifactItems>
+										<artifactItem>
+											<groupId>${project.groupId}</groupId>
+											<artifactId>${project.artifactId}</artifactId>
+											<version>${component.version}</version>
+											<type>war</type>
+											<destFileName>${project.build.finalName}.war</destFileName>
+										</artifactItem>
+									</artifactItems>
+									<outputDirectory>${project.build.directory}</outputDirectory>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.8</version>
+						<configuration>
+							<target>
+								<taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask" />
+								<deploy
+									url="https://${env_host}/management/tomcat-as09/manager/text"
+									username="${user}" password="${user_password}" path="/${project.build.finalName}"
+									war="file:${project.build.directory}/${project.build.finalName}.war"
+									update="true" />
+
+								<deploy
+									url="https://${env_host}/management/tomcat-as10/manager/text"
+									username="${user}" password="${user_password}" path="/${project.build.finalName}"
+									war="file:${project.build.directory}/${project.build.finalName}.war"
+									update="true" />
+							</target>
+						</configuration>
+						<dependencies>
+							<dependency>
+								<groupId>org.apache.tomcat</groupId>
+								<artifactId>catalina-ant</artifactId>
+								<version>6.0.44</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		 -->
+		 
+		 <profile>
+			<id>carrental_dev</id>
+			<build>
+				<finalName>${project.artifactId}-dev</finalName>
+				<resources>
+					<resource>
+						<directory>env-config/cr-test</directory>
+					</resource>
+				</resources>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<version>2.3</version>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>copy</goal>
+								</goals>
+								<configuration>
+									<artifactItems>
+										<artifactItem>
+											<groupId>${project.groupId}</groupId>
+											<artifactId>${project.artifactId}</artifactId>
+											<version>${component.version}</version>
+											<type>war</type>
+											<destFileName>${project.build.finalName}.war</destFileName>
+										</artifactItem>
+									</artifactItems>
+									<outputDirectory>${project.build.directory}</outputDirectory>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.8</version>
+						<configuration>
+							<target>
+								<taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask" />
+								<taskdef name="sshexec"
+									classname="org.apache.tools.ant.taskdefs.optional.ssh.SSHExec" />
+								<deploy
+									url="https://${env_host}/management/concar-cd-dev-tomcat02/tc-microservices/text"
+									username="${user}" password="${user_password}" path="/${project.build.finalName}"
+									war="file:${project.build.directory}/${project.build.finalName}.war"
+									update="true" />
+								<sshexec host="${env_host}" username="${user}" password="${user_password}"
+									command="~/service-register.sh ${project.build.finalName} tc-microservices cr-dev concar-cd-dev-tomcat02"
+									trust="true" />
+								<!-- <deploy
+									url="https://${env_host}/management/concar-tomcat04/tc-microservices/text"
+									username="${user}" password="${user_password}" path="/${project.build.finalName}"
+									war="file:${project.build.directory}/${project.build.finalName}.war"
+									update="true" />
+								<sshexec host="${env_host}" username="${user}" password="${user_password}"
+									command="~/service-register.sh ${project.build.finalName} tc-microservices cr concar-tomcat04"
+									trust="true" /> -->
+							</target>
+						</configuration>
+						<dependencies>
+							<dependency>
+								<groupId>org.apache.tomcat</groupId>
+								<artifactId>catalina-ant</artifactId>
+								<version>6.0.44</version>
+							</dependency>
+							<dependency>
+								<groupId>ant</groupId>
+								<artifactId>ant-jsch</artifactId>
+								<version>${ant.jsch.version}</version>
+							</dependency>
+							<dependency>
+								<groupId>com.jcraft</groupId>
+								<artifactId>jsch</artifactId>
+								<version>${jsch.version}</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>${maven-compiler-plugin.version}</version>
+						<configuration>
+							<encoding>utf-8</encoding>
+							<source>${jdk.version}</source>
+							<target>${jdk.version}</target>
+						</configuration>
+					</plugin> 
+				</plugins>
+			</build>
+		</profile>
+		 
+		<profile>
+			<id>cr-uat</id>
+			<build>
+				<finalName>${project.artifactId}</finalName>
+				<resources>
+					<resource>
+						<directory>env-config/cr-uat</directory>
+					</resource>
+				</resources>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<version>2.3</version>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>copy</goal>
+								</goals>
+								<configuration>
+									<artifactItems>
+										<artifactItem>
+											<groupId>${project.groupId}</groupId>
+											<artifactId>${project.artifactId}</artifactId>
+											<version>${component.version}</version>
+											<type>war</type>
+											<destFileName>${project.build.finalName}.war</destFileName>
+										</artifactItem>
+									</artifactItems>
+									<outputDirectory>${project.build.directory}</outputDirectory>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.8</version>
+						<configuration>
+							<target>
+								<taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask" />
+								<taskdef name="sshexec"
+									classname="org.apache.tools.ant.taskdefs.optional.ssh.SSHExec" />
+								<deploy
+									url="https://${env_host}/management/concar-tomcat03/tc-microservices/text"
+									username="${user}" password="${user_password}" path="/${project.build.finalName}"
+									war="file:${project.build.directory}/${project.build.finalName}.war"
+									update="true" />
+								<sshexec host="${env_host}" username="${user}" password="${user_password}"
+									command="~/service-register.sh ${project.build.finalName} tc-microservices cr concar-tomcat03"
+									trust="true" />
+								<deploy
+									url="https://${env_host}/management/concar-tomcat04/tc-microservices/text"
+									username="${user}" password="${user_password}" path="/${project.build.finalName}"
+									war="file:${project.build.directory}/${project.build.finalName}.war"
+									update="true" />
+								<sshexec host="${env_host}" username="${user}" password="${user_password}"
+									command="~/service-register.sh ${project.build.finalName} tc-microservices cr concar-tomcat04"
+									trust="true" />
+							</target>
+						</configuration>
+						<dependencies>
+							<dependency>
+								<groupId>org.apache.tomcat</groupId>
+								<artifactId>catalina-ant</artifactId>
+								<version>6.0.44</version>
+							</dependency>
+							<dependency>
+								<groupId>ant</groupId>
+								<artifactId>ant-jsch</artifactId>
+								<version>${ant.jsch.version}</version>
+							</dependency>
+							<dependency>
+								<groupId>com.jcraft</groupId>
+								<artifactId>jsch</artifactId>
+								<version>${jsch.version}</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>${maven-compiler-plugin.version}</version>
+						<configuration>
+							<encoding>utf-8</encoding>
+							<source>${jdk.version}</source>
+							<target>${jdk.version}</target>
+						</configuration>
+					</plugin> 
+				</plugins>
+			</build>
+		</profile>
+		
+		<profile>
+			<id>cr-prod</id>
+			<build>
+				<finalName>${project.artifactId}</finalName>
+				<resources>
+					<resource>
+						<directory>env-config/cr-prod</directory>
+					</resource>
+				</resources>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<version>2.3</version>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>copy</goal>
+								</goals>
+								<configuration>
+									<artifactItems>
+										<artifactItem>
+											<groupId>${project.groupId}</groupId>
+											<artifactId>${project.artifactId}</artifactId>
+											<version>${component.version}</version>
+											<type>war</type>
+											<destFileName>${project.build.finalName}.war</destFileName>
+										</artifactItem>
+									</artifactItems>
+									<outputDirectory>${project.build.directory}</outputDirectory>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.8</version>
+						<configuration>
+							<target>
+								<taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask" />
+								<taskdef name="sshexec"
+									classname="org.apache.tools.ant.taskdefs.optional.ssh.SSHExec" />
+								<deploy
+									url="https://${env_host}/management/concar-tomcat03/tc-microservices/text"
+									username="${user}" password="${user_password}" path="/${project.build.finalName}"
+									war="file:${project.build.directory}/${project.build.finalName}.war"
+									update="true" />
+								<sshexec host="${env_host}" username="${user}" password="${user_password}"
+									command="~/service-register.sh ${project.build.finalName} tc-microservices cr concar-tomcat03"
+									trust="true" />
+								<deploy
+									url="https://${env_host}/management/concar-tomcat04/tc-microservices/text"
+									username="${user}" password="${user_password}" path="/${project.build.finalName}"
+									war="file:${project.build.directory}/${project.build.finalName}.war"
+									update="true" />
+								<sshexec host="${env_host}" username="${user}" password="${user_password}"
+									command="~/service-register.sh ${project.build.finalName} tc-microservices cr concar-tomcat04"
+									trust="true" />
+							</target>
+						</configuration>
+						<dependencies>
+							<dependency>
+								<groupId>org.apache.tomcat</groupId>
+								<artifactId>catalina-ant</artifactId>
+								<version>6.0.44</version>
+							</dependency>
+							<dependency>
+								<groupId>ant</groupId>
+								<artifactId>ant-jsch</artifactId>
+								<version>${ant.jsch.version}</version>
+							</dependency>
+							<dependency>
+								<groupId>com.jcraft</groupId>
+								<artifactId>jsch</artifactId>
+								<version>${jsch.version}</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>${maven-compiler-plugin.version}</version>
+						<configuration>
+							<encoding>utf-8</encoding>
+							<source>${jdk.version}</source>
+							<target>${jdk.version}</target>
+						</configuration>
+					</plugin> 
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<repositories>
+		<repository>
+			<id>cm-dt-nexus</id>
+			<name>cm-dt-nexus</name>
+			<url>http://6.18.5.60:8081/repository/maven-public/</url>
+		</repository>
+		<repository>
+			<id>cm-dt-snapshots</id>
+			<name>cm-dt-snapshots</name>
+			<url>http://6.18.5.60:8081/repository/cm-dt-snapshots/</url>
+		</repository>
+		<repository>
+			<id>cm-dt-release</id>
+			<name>cm-dt-release</name>
+			<url>http://6.18.5.60:8081/repository/cm-dt-release/</url>
+		</repository>
+		<repository>
+			<id>wso2-public</id>
+			<url>http://6.18.5.60:8081/nexus/content/repositories/wso2-public/</url>
+		</repository>
+	</repositories>
+
+=======
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>carrental</groupId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<artifactId>carday-api-service</artifactId>
+	<name>api-service</name>
+
+	<properties>
+		<tomcat.version>2.2</tomcat.version>
+		<jsch.version>0.1.54</jsch.version>
+		<ant.jsch.version>1.6.5</ant.jsch.version>
+		<jdk.version>1.8</jdk.version>
+		<maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>cr-local</id>
+			<build>
+				<finalName>${project.name}</finalName>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.tomcat.maven</groupId>
+						<artifactId>tomcat7-maven-plugin</artifactId>
+						<version>${tomcat.version}</version>
+					</plugin>
+				</plugins>
+			</build>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		
+		<!-- 
+		<profile>
+			<id>carrental_dev</id>
+			<build>
+				<finalName>${project.artifactId}</finalName>
+				<resources>
+					<resource>
+						<directory>env-config/cr-test</directory>
+					</resource>
+				</resources>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<version>2.3</version>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>copy</goal>
+								</goals>
+								<configuration>
+									<artifactItems>
+										<artifactItem>
+											<groupId>${project.groupId}</groupId>
+											<artifactId>${project.artifactId}</artifactId>
+											<version>${component.version}</version>
+											<type>war</type>
+											<destFileName>${project.build.finalName}.war</destFileName>
+										</artifactItem>
+									</artifactItems>
+									<outputDirectory>${project.build.directory}</outputDirectory>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.8</version>
+						<configuration>
+							<target>
+								<taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask" />
+								<deploy
+									url="https://${env_host}/management/tomcat-as09/manager/text"
+									username="${user}" password="${user_password}" path="/${project.build.finalName}"
+									war="file:${project.build.directory}/${project.build.finalName}.war"
+									update="true" />
+
+								<deploy
+									url="https://${env_host}/management/tomcat-as10/manager/text"
+									username="${user}" password="${user_password}" path="/${project.build.finalName}"
+									war="file:${project.build.directory}/${project.build.finalName}.war"
+									update="true" />
+							</target>
+						</configuration>
+						<dependencies>
+							<dependency>
+								<groupId>org.apache.tomcat</groupId>
+								<artifactId>catalina-ant</artifactId>
+								<version>6.0.44</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		 -->
+		 
+		 <profile>
+			<id>carrental_dev</id>
+			<build>
+				<finalName>${project.name}</finalName>
+				<resources>
+					<resource>
+						<directory>env-config/cr-test</directory>
+					</resource>
+				</resources>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<version>2.3</version>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>copy</goal>
+								</goals>
+								<configuration>
+									<artifactItems>
+										<artifactItem>
+											<groupId>${project.groupId}</groupId>
+											<artifactId>${project.artifactId}</artifactId>
+											<version>${component.version}</version>
+											<type>war</type>
+											<destFileName>${project.build.finalName}.war</destFileName>
+										</artifactItem>
+									</artifactItems>
+									<outputDirectory>${project.build.directory}</outputDirectory>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.8</version>
+						<configuration>
+							<target>
+								<taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask" />
+								<taskdef name="sshexec"
+									classname="org.apache.tools.ant.taskdefs.optional.ssh.SSHExec" />
+								<deploy
+									url="https://${env_host}/management/concar-cd-dev-tomcat02/tc-microservices/text"
+									username="${user}" password="${user_password}" path="/${project.build.finalName}"
+									war="file:${project.build.directory}/${project.build.finalName}.war"
+									update="true" />
+								<sshexec host="${env_host}" username="${user}" password="${user_password}"
+									command="~/service-register.sh ${project.build.finalName} tc-microservices cr-dev concar-cd-dev-tomcat02"
+									trust="true" />
+								<!-- <deploy
+									url="https://${env_host}/management/concar-tomcat04/tc-microservices/text"
+									username="${user}" password="${user_password}" path="/${project.build.finalName}"
+									war="file:${project.build.directory}/${project.build.finalName}.war"
+									update="true" />
+								<sshexec host="${env_host}" username="${user}" password="${user_password}"
+									command="~/service-register.sh ${project.build.finalName} tc-microservices cr concar-tomcat04"
+									trust="true" /> -->
+							</target>
+						</configuration>
+						<dependencies>
+							<dependency>
+								<groupId>org.apache.tomcat</groupId>
+								<artifactId>catalina-ant</artifactId>
+								<version>6.0.44</version>
+							</dependency>
+							<dependency>
+								<groupId>ant</groupId>
+								<artifactId>ant-jsch</artifactId>
+								<version>${ant.jsch.version}</version>
+							</dependency>
+							<dependency>
+								<groupId>com.jcraft</groupId>
+								<artifactId>jsch</artifactId>
+								<version>${jsch.version}</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>${maven-compiler-plugin.version}</version>
+						<configuration>
+							<encoding>utf-8</encoding>
+							<source>${jdk.version}</source>
+							<target>${jdk.version}</target>
+						</configuration>
+					</plugin> 
+				</plugins>
+			</build>
+		</profile>
+		 
+		<profile>
+			<id>cr-uat</id>
+			<build>
+				<finalName>${project.name}</finalName>
+				<resources>
+					<resource>
+						<directory>env-config/cr-uat</directory>
+					</resource>
+				</resources>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<version>2.3</version>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>copy</goal>
+								</goals>
+								<configuration>
+									<artifactItems>
+										<artifactItem>
+											<groupId>${project.groupId}</groupId>
+											<artifactId>${project.artifactId}</artifactId>
+											<version>${component.version}</version>
+											<type>war</type>
+											<destFileName>${project.build.finalName}.war</destFileName>
+										</artifactItem>
+									</artifactItems>
+									<outputDirectory>${project.build.directory}</outputDirectory>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.8</version>
+						<configuration>
+							<target>
+								<taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask" />
+								<taskdef name="sshexec"
+									classname="org.apache.tools.ant.taskdefs.optional.ssh.SSHExec" />
+								<deploy
+									url="https://${env_host}/management/concar-tomcat03/tc-microservices/text"
+									username="${user}" password="${user_password}" path="/${project.build.finalName}"
+									war="file:${project.build.directory}/${project.build.finalName}.war"
+									update="true" />
+								<sshexec host="${env_host}" username="${user}" password="${user_password}"
+									command="~/service-register.sh ${project.build.finalName} tc-microservices cr concar-tomcat03"
+									trust="true" />
+								<deploy
+									url="https://${env_host}/management/concar-tomcat04/tc-microservices/text"
+									username="${user}" password="${user_password}" path="/${project.build.finalName}"
+									war="file:${project.build.directory}/${project.build.finalName}.war"
+									update="true" />
+								<sshexec host="${env_host}" username="${user}" password="${user_password}"
+									command="~/service-register.sh ${project.build.finalName} tc-microservices cr concar-tomcat04"
+									trust="true" />
+							</target>
+						</configuration>
+						<dependencies>
+							<dependency>
+								<groupId>org.apache.tomcat</groupId>
+								<artifactId>catalina-ant</artifactId>
+								<version>6.0.44</version>
+							</dependency>
+							<dependency>
+								<groupId>ant</groupId>
+								<artifactId>ant-jsch</artifactId>
+								<version>${ant.jsch.version}</version>
+							</dependency>
+							<dependency>
+								<groupId>com.jcraft</groupId>
+								<artifactId>jsch</artifactId>
+								<version>${jsch.version}</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>${maven-compiler-plugin.version}</version>
+						<configuration>
+							<encoding>utf-8</encoding>
+							<source>${jdk.version}</source>
+							<target>${jdk.version}</target>
+						</configuration>
+					</plugin> 
+				</plugins>
+			</build>
+		</profile>
+		
+		<profile>
+			<id>cr-prod</id>
+			<build>
+				<finalName>${project.name}</finalName>
+				<resources>
+					<resource>
+						<directory>env-config/cr-prod</directory>
+					</resource>
+				</resources>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<version>2.3</version>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>copy</goal>
+								</goals>
+								<configuration>
+									<artifactItems>
+										<artifactItem>
+											<groupId>${project.groupId}</groupId>
+											<artifactId>${project.artifactId}</artifactId>
+											<version>${component.version}</version>
+											<type>war</type>
+											<destFileName>${project.build.finalName}.war</destFileName>
+										</artifactItem>
+									</artifactItems>
+									<outputDirectory>${project.build.directory}</outputDirectory>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.8</version>
+						<configuration>
+							<target>
+								<taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask" />
+								<taskdef name="sshexec"
+									classname="org.apache.tools.ant.taskdefs.optional.ssh.SSHExec" />
+								<deploy
+									url="https://${env_host}/management/concar-tomcat03/tc-microservices/text"
+									username="${user}" password="${user_password}" path="/${project.build.finalName}"
+									war="file:${project.build.directory}/${project.build.finalName}.war"
+									update="true" />
+								<sshexec host="${env_host}" username="${user}" password="${user_password}"
+									command="~/service-register.sh ${project.build.finalName} tc-microservices cr concar-tomcat03"
+									trust="true" />
+								<deploy
+									url="https://${env_host}/management/concar-tomcat04/tc-microservices/text"
+									username="${user}" password="${user_password}" path="/${project.build.finalName}"
+									war="file:${project.build.directory}/${project.build.finalName}.war"
+									update="true" />
+								<sshexec host="${env_host}" username="${user}" password="${user_password}"
+									command="~/service-register.sh ${project.build.finalName} tc-microservices cr concar-tomcat04"
+									trust="true" />
+							</target>
+						</configuration>
+						<dependencies>
+							<dependency>
+								<groupId>org.apache.tomcat</groupId>
+								<artifactId>catalina-ant</artifactId>
+								<version>6.0.44</version>
+							</dependency>
+							<dependency>
+								<groupId>ant</groupId>
+								<artifactId>ant-jsch</artifactId>
+								<version>${ant.jsch.version}</version>
+							</dependency>
+							<dependency>
+								<groupId>com.jcraft</groupId>
+								<artifactId>jsch</artifactId>
+								<version>${jsch.version}</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>${maven-compiler-plugin.version}</version>
+						<configuration>
+							<encoding>utf-8</encoding>
+							<source>${jdk.version}</source>
+							<target>${jdk.version}</target>
+						</configuration>
+					</plugin> 
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<repositories>
+		<repository>
+			<id>cm-dt-nexus</id>
+			<name>cm-dt-nexus</name>
+			<url>http://6.18.5.60:8081/repository/maven-public/</url>
+		</repository>
+		<repository>
+			<id>cm-dt-snapshots</id>
+			<name>cm-dt-snapshots</name>
+			<url>http://6.18.5.60:8081/repository/cm-dt-snapshots/</url>
+		</repository>
+		<repository>
+			<id>cm-dt-release</id>
+			<name>cm-dt-release</name>
+			<url>http://6.18.5.60:8081/repository/cm-dt-release/</url>
+		</repository>
+		<repository>
+			<id>wso2-public</id>
+			<url>http://6.18.5.60:8081/nexus/content/repositories/wso2-public/</url>
+		</repository>
+	</repositories>
+
+>>>>>>> aa95ea70feb3555b943b0ecba5c17c853459858b:carday-microservice/carday-api-service/deploy/pom.xml
+</project>

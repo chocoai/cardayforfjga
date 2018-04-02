@@ -1,0 +1,228 @@
+@charset "utf-8";
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none
+}
+
+body {
+	font-family: '微软雅黑';
+	background-color:#f2f2f2;
+}
+
+.head{
+	width:100%;
+	height:120px;
+	background:url(../images/bg_nav_retrieve_password.png) no-repeat center;
+	text-align:center;
+}
+
+.head .logo{
+	position:relative;
+	width:1200px;
+	height:120px;
+	left:50%;
+	margin-left:-600px;
+	padding-top:17px;
+	text-align:left;
+}
+
+.backToLogin{
+	position:absolute;
+	margin-left:1100px;
+	width:100px;
+	float:right;
+	height:80px;
+	line-height:80px;
+	text-align:right;
+}
+
+.backToLogin a:hover{
+	color:#3399FF !important;
+	text-decoration:none !important;
+}
+
+#loginTest {
+	float: right;
+	font-size:16px;
+	color:#3399FF;
+	text-decoration: none;
+}
+
+#loginTest:hover {
+	text-decoration: underline;
+}
+
+.form {	
+	width:1200px;
+	height:840px;
+	margin:40px auto;
+	background-color: #FFFFFF;
+	text-align:center;
+	position:relative;
+}
+
+.inputArea{
+	height:360px;
+	width:360px;
+	position:relative;
+	left:50%;
+	margin-left:-180px;
+	padding-top:150px;
+}
+
+.forgetTitle{
+	font-size:28px;
+	color:#505050;
+	font-weight:bold;
+}
+
+.forgetBody{
+	margin-top:90px;
+	font-size:16px;
+	color:#505050;
+	font-weight:bold;
+}
+
+.return{
+	margin-top:20px;
+}
+
+.return .second{
+	font-size:16px;
+	color:#4e4e4e;
+}
+
+.return a{
+	text-decoration:none;
+	font-size:16px;
+	color:#0085d0;
+}
+
+
+
+.form form{
+	margin-top:60px;
+}
+
+.text{
+	font-size:16px;
+	color:#505050;
+	height:46px;
+	line-height:46px;
+	float:left;
+}
+
+
+
+.form .infos {
+	height: 46px;
+	line-height: 46px;
+	width: 300px;
+	margin-left:10px;
+	color: #989898;
+	font-size:16px;	
+	border: 3px solid rgba(0,0,0,.11);
+	border-radius: 6px;
+	float: left;
+	padding-left: 10px;
+}
+
+.form .div-ranks .send1{
+	width: 114px;
+	height: 46px;	
+	line-height: 46px;
+	text-decoration: none;
+	margin-left:20px;	
+	background: #0085D0;
+	color: #fff;	
+	font-size: 16px;
+	text-align: center;
+	float: left;
+	border-radius: 4px;
+}
+
+.form .div-ranks a.send1:hover {
+	background : #0C7ABA !important;
+}
+
+.form .div-ranks a.send1:active {
+	background : #0A6498 !important;
+}
+
+.form .div-ranks a.send0 {
+	width: 114px;
+	height: 46px;	
+	line-height: 46px;
+	text-decoration: none;
+	margin-left:20px;	
+	background: #CCCCCC;
+	color: #fff;	
+	font-size: 14px;
+	text-align: center;
+	float: left;
+	border-radius: 4px;
+}
+
+/* .form .div-phone a.send0:hover {
+	background: #A1A1A1;
+	color: #fff;
+	text-decoration: none;
+} */
+
+.form span.error {
+	height: 26px;
+	line-height: 26px;
+	padding: 2px;
+	color: red;
+	/* padding-left: 20px; */
+	display: block;
+	float: left;
+	margin-left: 10px;
+	font-size: 12px;
+	font-family: '宋体';
+}
+
+/* .div-phone .infos {
+	width: 354px;
+} */
+
+.div-button .nextStep {
+	width: 360px;
+	height: 46px;
+	line-height:46px;
+	color: #FFFFFF;
+	border-radius: 4px;
+	background: #0085D0;
+	font-size:20px;
+	border:0;	
+}
+
+.error_msg{
+	font-size:14px;
+	color:#989898;
+	margin-bottom:30px;
+	text-align:left;
+}
+
+.error_msg2{
+	font-size:14px;
+	color:#989898;
+	margin-bottom:30px;
+	text-align:left;
+}
+
+.div-button .nextStep:hover {
+	background : #0C7ABA !important;
+}
+.div-button .nextStep:active {
+	background : #0A6498 !important;
+}
+
+input[type="submit"]{
+	cursor:pointer;
+}
+
+input[type="button"]{
+	cursor:pointer;
+}

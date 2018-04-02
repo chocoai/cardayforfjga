@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="
+          http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd 
+          http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+	<!-- Jackson provider -->
+	<bean id='jaxrsProvider' class='com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider' />
+
+	<!-- Bean validation Intercepter Config -->
+	<bean id="invokeExceptionMapper"
+		class="com.cmdt.carrental.platform.service.mapper.InvokeFaultExceptionMapper" />
+	<bean id="validationExceptionMapper"
+		class="com.cmdt.carrental.platform.service.mapper.ValidationExceptionMapper" />
+		
+    <bean id="invokeClientExceptionMapper" class="com.cmdt.carrental.platform.service.mapper.InvokeClientExceptionMapper"/>		
+		
+	<bean id="validationProvider" class="org.apache.cxf.validation.BeanValidationProvider" />
+	<bean id="validationInInterceptor"
+		class="org.apache.cxf.jaxrs.validation.JAXRSBeanValidationInInterceptor">
+		<property name="provider" ref="validationProvider" />
+	</bean>
+	<bean id="validationOutInterceptor"
+		class="org.apache.cxf.jaxrs.validation.JAXRSBeanValidationOutInterceptor">
+		<property name="provider" ref="validationProvider" />
+	</bean>
+	
+	<bean id="responseInterceptor"
+		class="com.cmdt.carrental.platform.service.interceptor.ResponseInterceptor">
+	</bean>
+	
+
+	<!-- Alert Service -->
+	<jaxrs:server id="alert" address="/alert">
+		<jaxrs:serviceBeans>
+			<ref bean="alertApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<jaxrs:outInterceptors>
+			<ref bean="responseInterceptor" />
+		</jaxrs:outInterceptors>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="invokeClientExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<!-- Area Service -->
+	<jaxrs:server id="area" address="/area">
+		<jaxrs:serviceBeans>
+			<ref bean="areaApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<jaxrs:outInterceptors>
+			<ref bean="responseInterceptor" />
+		</jaxrs:outInterceptors>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="invokeClientExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<!-- Department Service -->
+	<jaxrs:server id="department" address="/department">
+		<jaxrs:serviceBeans>
+			<ref bean="departmentApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<jaxrs:outInterceptors>
+			<ref bean="responseInterceptor" />
+		</jaxrs:outInterceptors>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="invokeClientExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	
+	<!-- driver service -->
+	<jaxrs:server id="driver" address="/driver">
+		<jaxrs:serviceBeans>
+			<ref bean="driverApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<jaxrs:outInterceptors>
+			<ref bean="responseInterceptor" />
+		</jaxrs:outInterceptors>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="invokeClientExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<!-- marker Service -->
+	<jaxrs:server id="marker" address="/marker">
+		<jaxrs:serviceBeans>
+			<ref bean="markerApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<jaxrs:outInterceptors>
+			<ref bean="responseInterceptor" />
+		</jaxrs:outInterceptors>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="invokeClientExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<!-- order Service -->
+	<jaxrs:server id="order" address="/order">
+		<jaxrs:serviceBeans>
+			<ref bean="orderApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<jaxrs:outInterceptors>
+			<ref bean="responseInterceptor" />
+		</jaxrs:outInterceptors>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="invokeClientExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<!-- organization Service -->
+	<jaxrs:server id="organization" address="/organization">
+		<jaxrs:serviceBeans>
+			<ref bean="organizationApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<jaxrs:outInterceptors>
+			<ref bean="responseInterceptor" />
+		</jaxrs:outInterceptors>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="invokeClientExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<!-- resource Service -->
+	<jaxrs:server id="resource" address="/resource">
+		<jaxrs:serviceBeans>
+			<ref bean="resourceApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<jaxrs:outInterceptors>
+			<ref bean="responseInterceptor" />
+		</jaxrs:outInterceptors>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="invokeClientExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<!-- role Service -->
+	<jaxrs:server id="role" address="/role">
+		<jaxrs:serviceBeans>
+			<ref bean="roleApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<jaxrs:outInterceptors>
+			<ref bean="responseInterceptor" />
+		</jaxrs:outInterceptors>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="invokeClientExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<!-- rule Service -->
+	<jaxrs:server id="rule" address="/rule">
+		<jaxrs:serviceBeans>
+			<ref bean="ruleApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<jaxrs:outInterceptors>
+			<ref bean="responseInterceptor" />
+		</jaxrs:outInterceptors>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="invokeClientExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<!-- station Service -->
+	<jaxrs:server id="station" address="/station">
+		<jaxrs:serviceBeans>
+			<ref bean="stationApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<jaxrs:outInterceptors>
+			<ref bean="responseInterceptor" />
+		</jaxrs:outInterceptors>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="invokeClientExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<!-- systemMessage Service -->
+	<jaxrs:server id="systemMessage" address="/systemMessage">
+		<jaxrs:serviceBeans>
+			<ref bean="systemMessageApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<jaxrs:outInterceptors>
+			<ref bean="responseInterceptor" />
+		</jaxrs:outInterceptors>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="invokeClientExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<!-- usageReport Service -->
+	<jaxrs:server id="usageReport" address="/usageReport">
+		<jaxrs:serviceBeans>
+			<ref bean="usageReportApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<jaxrs:outInterceptors>
+			<ref bean="responseInterceptor" />
+		</jaxrs:outInterceptors>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="invokeClientExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<!-- user Service -->
+	<jaxrs:server id="user" address="/user">
+		<jaxrs:serviceBeans>
+			<ref bean="userApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<jaxrs:outInterceptors>
+			<ref bean="responseInterceptor" />
+		</jaxrs:outInterceptors>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="invokeClientExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<!-- vehicleAlert Service -->
+	<jaxrs:server id="vehicleAlert" address="/vehicleAlert">
+		<jaxrs:serviceBeans>
+			<ref bean="vehicleAlertApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<jaxrs:outInterceptors>
+			<ref bean="responseInterceptor" />
+		</jaxrs:outInterceptors>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="invokeClientExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<!-- vehicleAnnualInspection Service -->
+	<jaxrs:server id="vehicleAnnualInspection" address="/vehicleAnnualInspection">
+		<jaxrs:serviceBeans>
+			<ref bean="vehicleAnnualInspectionApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<jaxrs:outInterceptors>
+			<ref bean="responseInterceptor" />
+		</jaxrs:outInterceptors>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="invokeClientExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<!-- vehicle Service -->
+	<jaxrs:server id="vehicle" address="/vehicle">
+		<jaxrs:serviceBeans>
+			<ref bean="vehicleApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<jaxrs:outInterceptors>
+			<ref bean="responseInterceptor" />
+		</jaxrs:outInterceptors>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="invokeClientExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<!-- vehicleMaintenance Service -->
+	<jaxrs:server id="vehicleMaintenance" address="/vehicleMaintenance">
+		<jaxrs:serviceBeans>
+			<ref bean="vehicleMaintenanceApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<jaxrs:outInterceptors>
+			<ref bean="responseInterceptor" />
+		</jaxrs:outInterceptors>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="invokeClientExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<!-- vehicleMaintenance Service -->
+	<jaxrs:server id="employee" address="/employee">
+		<jaxrs:serviceBeans>
+			<ref bean="employeeApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<jaxrs:outInterceptors>
+			<ref bean="responseInterceptor" />
+		</jaxrs:outInterceptors>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="invokeClientExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<!-- warehouse Service -->
+	<jaxrs:server id="warehouse" address="/warehouse">
+		<jaxrs:serviceBeans>
+			<ref bean="warehouseApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<jaxrs:outInterceptors>
+			<ref bean="responseInterceptor" />
+		</jaxrs:outInterceptors>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<!-- rent Service -->
+	<jaxrs:server id="rent" address="/rent">
+		<jaxrs:serviceBeans>
+			<ref bean="rentApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<jaxrs:outInterceptors>
+			<ref bean="responseInterceptor" />
+		</jaxrs:outInterceptors>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="invokeClientExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<!-- Captcha Service -->
+	<jaxrs:server id="code" address="/code">
+		<jaxrs:serviceBeans>
+			<ref bean="captchaApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<!--<jaxrs:outInterceptors>-->
+			<!--<ref bean="responseInterceptor" />-->
+		<!--</jaxrs:outInterceptors>-->
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="invokeClientExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<!-- Devcie Service -->
+	<jaxrs:server id="device" address="/device">
+		<jaxrs:serviceBeans>
+			<ref bean="deviceApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<!--<jaxrs:outInterceptors>-->
+			<!--<ref bean="responseInterceptor" />-->
+		<!--</jaxrs:outInterceptors>-->
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="invokeClientExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+
+	<!-- bean declaration -->
+	<bean id="alertApi" class="com.cmdt.carrental.platform.service.api.mobile.AlertApi" />
+	<bean id="areaApi" class="com.cmdt.carrental.platform.service.api.portal.AreaApi" />
+	<bean id="employeeApi" class="com.cmdt.carrental.platform.service.api.portal.EmployeeApi" />
+	<bean id="departmentApi" class="com.cmdt.carrental.platform.service.api.portal.DepartmentApi" />
+	<bean id="driverApi" class="com.cmdt.carrental.platform.service.api.portal.DriverApi" />
+	<bean id="markerApi" class="com.cmdt.carrental.platform.service.api.portal.MarkerApi" />
+	<bean id="orderApi" class="com.cmdt.carrental.platform.service.api.portal.OrderApi" />
+	<bean id="organizationApi" class="com.cmdt.carrental.platform.service.api.portal.OrganizationApi" />
+	<bean id="rentApi" class="com.cmdt.carrental.platform.service.api.portal.RentApi" />
+	<bean id="resourceApi" class="com.cmdt.carrental.platform.service.api.ow.ResourceApi" />
+	<bean id="roleApi" class="com.cmdt.carrental.platform.service.api.ow.RoleApi" />
+	<bean id="ruleApi" class="com.cmdt.carrental.platform.service.api.portal.RuleApi" />
+	<bean id="stationApi" class="com.cmdt.carrental.platform.service.api.portal.StationApi" />
+	<bean id="systemMessageApi" class="com.cmdt.carrental.platform.service.api.portal.SystemMessageApi" />
+	<bean id="usageReportApi" class="com.cmdt.carrental.platform.service.api.portal.UsageReportApi" />
+	<bean id="userApi" class="com.cmdt.carrental.platform.service.api.portal.UserApi" />
+	<bean id="vehicleAlertApi" class="com.cmdt.carrental.platform.service.api.portal.VehicleAlertApi" />
+	<bean id="vehicleAnnualInspectionApi" class="com.cmdt.carrental.platform.service.api.portal.VehicleAnnualInspectionApi" />
+	<bean id="vehicleApi" class="com.cmdt.carrental.platform.service.api.portal.VehicleApi" />
+	<bean id="vehicleMaintenanceApi" class="com.cmdt.carrental.platform.service.api.portal.VehicleMaintenanceApi" />
+	<bean id="warehouseApi" class="com.cmdt.carrental.platform.service.api.ow.WarehouseApi" />
+	<bean id="captchaApi" class="com.cmdt.carrental.platform.service.api.ow.CaptchaApi" />
+	<bean id="deviceApi" class="com.cmdt.carrental.platform.service.api.ow.DeviceApi" />
+	
+	<!--  ow  -->
+	<bean id="organizationOWApi" class="com.cmdt.carrental.platform.service.api.ow.OrganizationApi" />
+	<bean id="vehicleOWApi" class="com.cmdt.carrental.platform.service.api.ow.VehicleApi" />
+	<bean id="userOWApi" class="com.cmdt.carrental.platform.service.api.ow.UserApi" />
+	
+	<jaxrs:server id="owUser" address="/ow/user">
+		<jaxrs:serviceBeans>
+			<ref bean="userOWApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<jaxrs:outInterceptors>
+			<ref bean="responseInterceptor" />
+		</jaxrs:outInterceptors>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="invokeClientExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<jaxrs:server id="owOrganization" address="/ow/organization">
+		<jaxrs:serviceBeans>
+			<ref bean="organizationOWApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<jaxrs:outInterceptors>
+			<ref bean="responseInterceptor" />
+		</jaxrs:outInterceptors>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="invokeClientExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<jaxrs:server id="owVehicle" address="/ow/vehicle">
+		<jaxrs:serviceBeans>
+			<ref bean="vehicleOWApi" />
+		</jaxrs:serviceBeans>
+		<jaxrs:inInterceptors>
+			<ref bean="validationInInterceptor" />
+		</jaxrs:inInterceptors>
+		<jaxrs:outInterceptors>
+			<ref bean="responseInterceptor" />
+		</jaxrs:outInterceptors>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+		<jaxrs:providers>
+			<ref bean="validationExceptionMapper" />
+			<ref bean="invokeExceptionMapper" />
+			<ref bean="invokeClientExceptionMapper" />
+			<ref bean="jaxrsProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+</beans>

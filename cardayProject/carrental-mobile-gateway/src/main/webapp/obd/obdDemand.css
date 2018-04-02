@@ -1,0 +1,226 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+html,body{
+	height: 100%;
+	font-size: 20px;
+}
+body{
+	background: #eeeeee !important;
+	font-family: "瀵邦喛钂嬮梿鍛寸拨";
+}
+input[type="text"]{
+	font-size: 18px;
+}
+.content{
+	width: 90%;
+	height: 85%;
+	padding: 0 5% 5%;
+}
+.top{
+	width: 100%;
+	background: #ffffff;
+	height: 40px;
+	padding-top: 10px;
+}
+.top div{
+	display: inline-block;
+	vertical-align: middle;
+}
+.top .return{
+	width: 20%;
+	text-align: center;
+	border-right: 1px solid #EAEAEA;
+}
+.top .return img{
+	width: 30%;
+	vertical-align: middle;
+}
+.top .topTitle{
+	padding-left: 20px;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.obdSearch,.vehicleSearch{
+	height: 36px;
+	margin-top: 15px;
+}
+.obdSearch input{
+	width: 93%;
+	height: 36px;
+	border: 1px solid #E3E3E3 !important;
+	border-radius: 36px !important;
+	outline: none;
+	padding-left: 15px !important;
+}
+.SearchBth{
+	width: 100%;
+	height: 56px;
+	margin-top: 15px;
+}
+.SearchBth div{
+	position: relative;
+	margin-bottom: -7px;
+}
+.SearchBth div img{
+	width: 100%;
+	height: 50px;
+}
+.SearchBth div span{
+	width: 42%;
+	text-align: center;
+	position: absolute;
+	top: 10px;
+	left: 29%;
+	color: #ffffff;
+}
+.obdInfo,.vehicleInfo,.obdFixInfo,.mapInfo{
+	width:89%;
+	font-size: 16px;
+	background: #ffffff;
+	border-radius: 10px;
+	border:1px solid #E5E5E5;
+	overflow: auto;
+}
+.obdInfo{
+	max-height:55%;
+	margin-top: 65px;
+	padding: 10px 15px;
+}
+.mapInfo{
+	max-height:55%;
+	margin-top: 25px;
+	height:240px;
+	padding: 10px 15px;
+}
+
+.obdInfo p,.vehicleInfo p{
+	margin-bottom: 5px;
+}
+#vehicleNo{
+	width: 93%;
+	height: 36px;
+	border: 1px solid #E3E3E3;
+	border-radius: 18px;
+	outline: none;
+	padding-left: 15px;
+}
+.vehicleSearchBox{
+	margin: 40px 0;
+}
+.vehicleSearchBox ul:nth-of-type(1){
+	margin-bottom:20px;
+}
+.vehicleSearchBox ul li{
+	list-style: none;
+	display: inline-block;
+	vertical-align: middle;
+}
+.vehicleSearchBox ul li:nth-of-type(1){
+	font-size: 20px;
+	width:72px;
+}
+.vehicleSearchBox ul li:nth-of-type(2){
+	width:40%;
+	position: relative;
+}
+.vehicleSearchBox ul li:nth-of-type(2) input{
+	width: 85%;
+    height: 30px;
+    border-radius: 30px;
+    border: 1px solid #E3E3E3;
+    outline: 0;
+    padding-left: 10px;
+    padding-right: 14px;
+}
+.vehicleSearchBox ul li:nth-of-type(3){
+	width: 22%;
+	text-align: center;
+}
+.vehicleSearchBox ul li:nth-of-type(3) img{
+	width: 37%;
+	margin: 0 4px;
+}
+#units{
+	position: absolute;
+    top: 4px;
+    right: 2px;
+}
+.vehicleSearchBtn{
+	width: 100%;
+	height: 56px;
+	color: #ffffff;
+	position: relative;
+}
+.vehicleSearchBtn img{
+	width: 100%;
+	height: 50px;
+	margin: 2px 0;
+}
+.vehicleSearchBtn span{
+	width: 42%;
+	text-align: center;
+	position: absolute;
+	top: 16px;
+	left: 29%;
+}
+.vehicleInfo{
+	max-height:75%;
+	margin-top: 25px;
+	padding: 10px 15px;
+}
+
+
+.obdFixInfo{
+	max-height:62%;
+	text-align: left;
+	margin-top: 25px;
+	padding: 20px 15px;
+}
+
+
+.content .vehicleCard{
+	background: #ffffff;
+	border-radius: 6px;
+	margin-top: 10px;
+	position: relative;
+}
+.vehicleCard .vehicleCardInfo{
+	font-size: 16px;
+	padding:2% 0 2% 8%;
+	color: #999999;
+}
+.vehicleCard .obdbinding{
+	width: 30%;
+	height: 100%;
+	text-align: center;
+	line-height: 80px;
+	color: #ffffff;
+	background: #3953db;
+	border-radius: 6px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 18px;
+}
+.obdParameterInfo{
+	width:89%;
+	height:40px;
+	font-size: 16px;
+	background: #ffffff;
+	border-radius: 10px;
+	border:1px solid #E5E5E5;
+	overflow: auto;
+	margin-top:10px;
+	display:none;
+	text-align: center;
+	color: #B31D2D;
+	padding: 10px 15px;
+}
+
+.warntext{
+	text-align: center;
+	color: #B31D2D;
+}

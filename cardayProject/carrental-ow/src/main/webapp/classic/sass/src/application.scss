@@ -1,0 +1,17 @@
+/** 表单元素高度 */
+//$form-field-height: 20px;
+
+.x-btn-default-toolbar-small {
+    border-radius: 0;
+    padding: 7px 7px 7px 7px;
+    border-width: 1px;
+    border-style: solid;
+    background-color: #35baf6 ;
+    border-color: #35baf6;
+}
+
+.x-btn-over.x-btn-default-toolbar-small {
+    border-color: #2d9fd2;
+    background-image: none;
+    background-color: #31abe2 ;
+}

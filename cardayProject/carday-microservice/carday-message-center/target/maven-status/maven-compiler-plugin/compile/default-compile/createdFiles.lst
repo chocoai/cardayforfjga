@@ -1,0 +1,14 @@
+com\cmdt\carday\message\center\api\MessageApi.class
+com\cmdt\carday\message\center\entity\ReadMessage.class
+com\cmdt\carday\message\center\service\PlatformSystemMessageService.class
+com\cmdt\carday\message\center\ServletInitializer.class
+com\cmdt\carday\message\center\dao\MessageRepository.class
+com\cmdt\carday\message\center\entity\Message.class
+com\cmdt\carday\message\center\service\MessageServiceImpl$1.class
+com\cmdt\carday\message\center\service\MessageServiceImpl.class
+com\cmdt\carday\message\center\AppConfig.class
+com\cmdt\carday\message\center\dao\ReadMessageRepository.class
+com\cmdt\carday\message\center\api\MessageBaseApi.class
+com\cmdt\carday\message\center\entity\ReadMessagePK.class
+com\cmdt\carday\message\center\service\MessageService.class
+com\cmdt\carday\message\center\MessageCenterServiceApplication.class

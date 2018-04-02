@@ -1,0 +1,33 @@
+{
+    "status": "success",
+    "data": {
+        "totalRows": 5,
+        "totalPages": 1,
+        "currentPage": 1,
+        "numPerPage": 10,
+        "resultList": [
+            {
+                "id": 1001,                
+                "deptName": "福州市公安局",
+                "vehicleNumber": "闽O-A0001",
+                "maintainCost": "595",
+                "insuranceCost": "4000",
+                "trafficCost": "400",
+                "count": "50",
+                "totalCost": "295",
+                "sumCost": "5340",
+            },
+            {
+                "id": 1002,                
+                "deptName": "厦门市公安局",
+                "vehicleNumber": "闽O-B0001",
+                "maintainCost": "300",
+                "insuranceCost": "3000",
+                "trafficCost": "500",
+                "count": "50",
+                "totalCost": "345",
+                "sumCost": "4195",
+            }
+        ]
+    }
+}

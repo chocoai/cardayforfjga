@@ -1,0 +1,92 @@
+{
+    "data": {
+        "totalRows": 45,
+        "totalPages": 5,
+        "currentPage": 1,
+        "numPerPage": 10,
+        "resultList": [
+            {
+                "id": 2107,
+                "vehicleModel": "宝马8",
+                "vehicleNumber": "鄂A12121",
+                "stationName": "歌华大厦",
+                "landingDays": "11",
+                "landingRate": "57.89%",
+            },
+            {
+                "id": 562,
+                "vehicleModel": "宝马x6",
+                "vehicleNumber": "鄂E00007",
+                "stationName": "歌华大厦",
+                "landingDays": "11",
+                "landingRate": "57.89%",
+            },
+            {
+                "id": 533,
+                "vehicleModel": "宝马x6",
+                "vehicleNumber": "鄂A15796",
+                "stationName": "歌华大厦",
+                "landingDays": "11",
+                "landingRate": "57.89%",
+            },
+            {
+                "id": 2271,
+                "vehicleModel": "宝马x6",
+                "vehicleNumber": "鄂A12123",
+                "stationName": "歌华大厦",
+                "landingDays": "11",
+                "landingRate": "57.89%",
+            },
+            {
+                "id": 1599,
+                "vehicleModel": "宝马x6",
+                "vehicleNumber": "鄂E00227",
+                "stationName": "歌华大厦",
+                "landingDays": "11",
+                "landingRate": "57.89%",
+            },
+            {
+                "id": 635,
+                "vehicleModel": "宝马x6",
+                "vehicleNumber": "鄂E00204",
+                "stationName": "歌华大厦",
+                "landingDays": "11",
+                "landingRate": "57.89%",
+            },
+            {
+                "id": 568,
+                "vehicleModel": "宝马x6",
+                "vehicleNumber": "鄂E00014",
+                "stationName": "歌华大厦",
+                "landingDays": "11",
+                "landingRate": "57.89%",
+            },
+            {
+                "id": 567,
+                "vehicleModel": "宝马x6",
+                "vehicleNumber": "鄂E00013",
+                "stationName": "歌华大厦",
+                "landingDays": "11",
+                "landingRate": "57.89%",
+            },
+            {
+                "id": 566,
+                "vehicleModel": "宝马x6",
+                "vehicleNumber": "鄂E00012",
+                "stationName": "歌华大厦",
+                "landingDays": "11",
+                "landingRate": "57.89%",
+            },
+            {
+                "id": 563,
+                "vehicleModel": "宝马x6",
+                "vehicleNumber": "鄂E00008",
+                "stationName": "歌华大厦",
+                "landingDays": "11",
+                "landingRate": "57.89%",
+            }
+        ]
+    },
+    "workDay" : "21",
+    "status": "success"
+}

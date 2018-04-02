@@ -1,0 +1,121 @@
+{
+    "data": {
+        "totalRows": 19,
+        "totalPages": 2,
+        "currentPage": 1,
+        "numPerPage": 10,
+        "resultList": [
+            {
+                "id": 101,
+                "deptName": "福州市公安局",
+                "levelType": 2,
+                "emergencyVehNum": "1",
+                "enforcementVehNum": "2",
+                "specialVehNum": "5",
+                "normalVehNum": "3",
+                "majorVehNum": "8",
+                "status":"1"
+            },
+            {
+                "id": 102,
+                "deptName": "鼓楼分局",
+                "levelType": 3,
+                "emergencyVehNum": "2",
+                "enforcementVehNum": "3",
+                "specialVehNum": "8",
+                "normalVehNum": "2",
+                "majorVehNum": "4",
+                "status":"1"
+            },
+            {
+                "id": 103,
+                "deptName": "长乐市公安局",
+                "levelType": 3,
+                "emergencyVehNum": "1",
+                "enforcementVehNum": "3",
+                "specialVehNum": "8",
+                "normalVehNum": "2",
+                "majorVehNum": "4",
+                "status":"1"
+            },
+            {
+                "id": 104,
+                "deptName": "永泰县公安局",
+                "levelType": 3,
+                "emergencyVehNum": "8",
+                "enforcementVehNum": "8",
+                "specialVehNum": "7",
+                "normalVehNum": "6",
+                "majorVehNum": "9",
+                "status":"1"
+            },
+            {
+                "id": 105,
+                "deptName": "连江县公安局",
+                "levelType": 3,
+                "emergencyVehNum": "4",
+                "enforcementVehNum": "5",
+                "specialVehNum": "4",
+                "normalVehNum": "5",
+                "majorVehNum": "9",
+                "status":"1"
+            },
+            {
+                "id": 106,
+                "deptName": "仓山分局",
+                "levelType": 4,
+                "emergencyVehNum": "5",
+                "enforcementVehNum": "7",
+                "specialVehNum": "2",
+                "normalVehNum": "5",
+                "majorVehNum": "9",
+                "status":"1"
+            },
+            {
+                "id": 107,
+                "deptName": "治安支队",
+                "levelType": 4,
+                "emergencyVehNum": "2",
+                "enforcementVehNum": "5",
+                "specialVehNum": "6",
+                "normalVehNum": "7",
+                "majorVehNum": "3",
+                "status":"1"
+            },
+            {
+                "id": 108,
+                "deptName": "交警支队",
+                "levelType": 4,
+                "emergencyVehNum": "5",
+                "enforcementVehNum": "6",
+                "specialVehNum": "2",
+                "normalVehNum": "8",
+                "majorVehNum": "3",
+                "status":"1"
+            },
+            {
+                "id": 109,
+                "deptName": "巡特警支队",
+                "levelType": 4,
+                "emergencyVehNum": "3",
+                "enforcementVehNum": "3",
+                "specialVehNum": "4",
+                "normalVehNum": "4",
+                "majorVehNum": "10",
+                "status":"1"
+            },
+            {
+                "id": 110,
+                "deptName": "社区警务指导处",
+                "levelType": 4,
+                "emergencyVehNum": "3",
+                "enforcementVehNum": "3",
+                "specialVehNum": "6",
+                "normalVehNum": "5",
+                "majorVehNum": "9",
+                "status":"1"
+            },
+        ]
+    },
+    "status": "success"
+}

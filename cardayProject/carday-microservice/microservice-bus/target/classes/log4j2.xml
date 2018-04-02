@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" name="carday-rt-data" packages="com.cmdt.carrental">
+
+	<properties>
+		<property name="log_filename">c:/var/log/carrental/data/carday-rt-data.log</property>
+		<property name="log_filepattern">c:/var/log/carrental/data/$${date:yyyy-MM}/carday-rt-data-%d{yyyy-MM-dd}-%i.log.gz</property>
+		<property name="log_patternlayout">%-d{yyyy-MM-dd HH:mm:ss,SSS}  [ %t:%r ] - [ %p ]  %m%n</property>
+	</properties>
+
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${log_patternlayout}"/>
+            <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+        </Console>
+		<RollingFile  
+			name="logfile" 
+			filename="${log_filename}"
+			filepattern="${log_filepattern}">
+			<PatternLayout pattern="${log_patternlayout}" />
+			<ThresholdFilter level="INFO" onMatch="ACCEPT"	onMismatch="DENY" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="6" modulate="true"/>
+				<SizeBasedTriggeringPolicy size="200 MB" />
+			</Policies>
+			<DefaultRolloverStrategy>
+        		<Delete basePath="c:/var/log/carrental/data" maxDepth="2">
+	          		<IfFileName glob="*/carday-rt-data-*.log.gz" />
+	          		<IfLastModified age="90d" />
+        		</Delete>
+      		</DefaultRolloverStrategy>
+		</RollingFile>
+	</Appenders>
+	
+	<Loggers>
+		<Logger name="com.cmdt.carrental" level="INFO" />
+		<Root level="INFO">
+			<AppenderRef ref="console" />
+		</Root>
+	</Loggers>
+</Configuration>

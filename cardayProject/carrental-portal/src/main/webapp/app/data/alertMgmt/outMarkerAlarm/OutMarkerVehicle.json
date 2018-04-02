@@ -1,0 +1,20 @@
+{
+      "status": true,
+      "data": [{
+            "vehicleNumber": "鄂A37898",
+            "vehicleType": "1",
+            "carStyle": "途观",
+            "abnormalType": "越界",
+            "alarmStartTime":"2014-12-23 14:23:20",
+            "alarmEndTime":"2014-12-23 15:00:00",
+            "duration": "35",
+            "overSpeedRatio":"8.3%",
+            "mileage":"25",
+            "vehicleFromId":"12",
+            "vehicleFromName":"首汽",
+            "arrangedOrgName":"部门1",
+            "driverName":"李森",
+            "driverPhone":"15923888028",
+          	"pattern": "[[{\"lng\": 38.920468,\"lat\": 121.691279},{\"lng\": 38.919654,\"lat\": 121.691495},{\"lng\": 38.919654,\"lat\": 121.693273},{\"lng\": 38.920412,\"lat\": 121.693489},{\"lng\": 38.920468,\"lat\": 121.691279}]]"
+       }]
+}

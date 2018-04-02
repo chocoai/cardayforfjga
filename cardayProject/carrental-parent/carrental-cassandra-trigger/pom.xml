@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>carrental</groupId>
+    <artifactId>carrental-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>carrental-cassandra-trigger</artifactId>
+  <name>carrental-cassandra-trigger</name>
+  <url>http://maven.apache.org</url>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <cassandra.version>3.11.0</cassandra.version>
+  </properties>
+  <dependencies>
+  	
+  	<!-- https://mvnrepository.com/artifact/org.apache.cassandra/cassandra-all -->
+	<dependency>
+	    <groupId>org.apache.cassandra</groupId>
+	    <artifactId>cassandra-all</artifactId>
+	    <version>${cassandra.version}</version>
+	</dependency>
+  	
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    
+  </dependencies>
+</project>

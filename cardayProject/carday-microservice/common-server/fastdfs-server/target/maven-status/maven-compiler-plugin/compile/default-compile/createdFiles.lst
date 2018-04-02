@@ -1,0 +1,5 @@
+com\cmdt\carday\fastdfs\AppConfig.class
+com\cmdt\carday\fastdfs\api\FastdfsApi.class
+com\cmdt\carday\fastdfs\service\FileStorageService.class
+com\cmdt\carday\fastdfs\ServletInitializer.class
+com\cmdt\carday\fastdfs\FdfsServiceApplication.class

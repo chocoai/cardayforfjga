@@ -1,0 +1,12 @@
+{
+    success: true, 
+data: [
+                    { carNum: "沪A11111", carBrand: "BMW", carModel: "X5", carType: '舒适型', seatNum: "5", displacement: "3.0T",carColor: "黑色",station: "长寿路停车场",seatNum: "5",usedCity:"WH" },
+                    { carNum: "沪A22222", carBrand: "BMW", carModel: "X5", carType: '舒适型', seatNum: "5", displacement: "3.0T",carColor: "黑色",station: "长寿路停车场",seatNum: "5",usedCity:"WH" },
+                    { carNum: "沪A33333", carBrand: "BMW", carModel: "X5", carType: '舒适型', seatNum: "5", displacement: "3.0T",carColor: "黑色",station: "长寿路停车场",seatNum: "5",usedCity:"WH" },
+                    { carNum: "沪A44444", carBrand: "BMW", carModel: "X5", carType: '舒适型', seatNum: "5", displacement: "3.0T",carColor: "黑色",station: "长寿路停车场",seatNum: "5",usedCity:"WH" },
+                    { carNum: "沪A55555", carBrand: "BMW", carModel: "X5", carType: '舒适型', seatNum: "5", displacement: "3.0T",carColor: "黑色",station: "长寿路停车场",seatNum: "5",usedCity:"WH" },
+                    { carNum: "沪A66666", carBrand: "BMW", carModel: "X5", carType: '舒适型', seatNum: "5", displacement: "3.0T",carColor: "黑色",station: "长寿路停车场",seatNum: "5",usedCity:"WH" }
+                    
+      ]
+}

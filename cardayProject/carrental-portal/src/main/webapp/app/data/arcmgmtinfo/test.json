@@ -1,0 +1,150 @@
+{
+   
+            "children": [
+                {
+                    "text": "产品部",
+                    "iconCls": "x-fa fa-home",
+                    "children": [
+                        {
+                            "text": "沪AC111A",
+                            "iconCls": "x-fa fa-car",
+                            "viewType": "rolemgmt",
+                            "itemId": "roleMgmt",
+                            "leaf": true
+                        },
+                        {
+                            "text": "沪AC222A",
+                            "iconCls": "x-fa fa-car",
+                            "viewType": "rolemgmt",
+                            "itemId": "rolemgmt",
+                            "leaf": true
+                        },
+                        {
+                            "text": "沪AC333A",
+                            "iconCls": "x-fa fa-car",
+                            "viewType": "rolemgmt",
+                            "itemId": "rolemgmt",
+                            "leaf": true
+                        },
+                        {
+                            "text": "沪AC444A",
+                            "iconCls": "x-fa fa-car",
+                            "viewType": "rolemgmt",
+                            "itemId": "rolemgmt",
+                            "leaf": true
+                        },
+                        {
+                            "text": "沪AC555A",
+                            "iconCls": "x-fa fa-car",
+                            "viewType": "rolemgmt",
+                            "itemId": "rolemgmt",
+                            "leaf": true
+                        },
+                        {
+                            "text": "沪AC666A",
+                            "iconCls": "x-fa fa-car",
+                            "viewType": "rolemgmt",
+                            "itemId": "rolemgmt",
+                            "leaf": true
+                        }
+                    ]
+                },
+                {
+                    "text": "研发部",
+                    "iconCls": "x-fa fa-home",
+                    "children": [
+                        {
+                            "text": "沪AC111A",
+                            "iconCls": "x-fa fa-car",
+                            "viewType": "rolemgmt",
+                            "itemId": "rolemgmt",
+                            "leaf": true
+                        },
+                        {
+                            "text": "沪AC222A",
+                            "iconCls": "x-fa fa-car",
+                            "viewType": "rolemgmt",
+                            "itemId": "rolemgmt",
+                            "leaf": true
+                        },
+                        {
+                            "text": "沪AC333A",
+                            "iconCls": "x-fa fa-car",
+                            "viewType": "rolemgmt",
+                            "itemId": "rolemgmt",
+                            "leaf": true
+                        },
+                        {
+                            "text": "沪AC444A",
+                            "iconCls": "x-fa fa-car",
+                            "viewType": "rolemgmt",
+                            "itemId": "rolemgmt",
+                            "leaf": true
+                        },
+                        {
+                            "text": "沪AC555A",
+                            "iconCls": "x-fa fa-car",
+                            "viewType": "rolemgmt",
+                            "itemId": "rolemgmt",
+                            "leaf": true
+                        },
+                        {
+                            "text": "沪AC666A",
+                            "iconCls": "x-fa fa-car",
+                            "viewType": "rolemgmt",
+                            "itemId": "rolemgmt",
+                            "leaf": true
+                        }
+                    ]
+                },
+                {
+                    "text": "市场部",
+                    "iconCls": "x-fa fa-home",
+                    "children": [
+                        {
+                            "text": "沪AC111A",
+                            "iconCls": "x-fa fa-car",
+                            "viewType": "rolemgmt",
+                            "itemId": "rolemgmt",
+                            "leaf": true
+                        },
+                        {
+                            "text": "沪AC222A",
+                            "iconCls": "x-fa fa-car",
+                            "viewType": "rolemgmt",
+                            "itemId": "rolemgmt",
+                            "leaf": true
+                        },
+                        {
+                            "text": "沪AC333A",
+                            "iconCls": "x-fa fa-car",
+                            "viewType": "rolemgmt",
+                            "itemId": "rolemgmt",
+                            "leaf": true
+                        },
+                        {
+                            "text": "沪AC444A",
+                            "iconCls": "x-fa fa-car",
+                            "viewType": "rolemgmt",
+                            "itemId": "rolemgmt",
+                            "leaf": true
+                        },
+                        {
+                            "text": "沪AC555A",
+                            "iconCls": "x-fa fa-car",
+                            "viewType": "rolemgmt",
+                            "itemId": "rolemgmt",
+                            "leaf": true
+                        },
+                        {
+                            "text": "沪AC666A",
+                            "iconCls": "x-fa fa-car",
+                            "viewType": "rolemgmt",
+                            "itemId": "rolemgmt",
+                            "leaf": true
+                        }
+                    ]
+                }
+       
+    ]
+}

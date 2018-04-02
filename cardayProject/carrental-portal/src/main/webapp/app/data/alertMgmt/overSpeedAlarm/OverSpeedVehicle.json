@@ -1,0 +1,36 @@
+{
+      "status": true,
+      "data": [{
+            "vehicleNumber": "鄂A37898",
+            "vehicleType": "1",
+            "carStyle": "途观",
+            "abnormalType": "超速",
+            "alarmTime":"2014-12-23 14:23:20",
+            "realSpeed": "120",
+            "overSpeedRatio":"8.3%",
+            "overSpeedPosition":"湖北省武汉市街道口",
+            "vehicleFromId":"12",
+            "vehicleFromName":"首汽",
+            "arrangedOrgName":"部门1",
+            "driverName":"李森",
+            "driverPhone":"15923888028",
+            "longitude":"114.29821255382512",
+            "latitude":"30.589583523896508"
+        },{
+            "vehicleNumber": "鄂A37898",
+            "vehicleType": "1",
+            "carStyle": "途观",
+            "abnormalType": "超速",
+            "alarmTime":"2014-12-23 14:23:20",
+            "realSpeed": "120",
+            "overSpeedRatio":"8.3%",
+            "overSpeedPosition":"湖北省武汉市街道口",
+            "vehicleFromId":"12",
+            "vehicleFromName":"首汽",
+            "arrangedOrgName":"部门1",
+            "driverName":"李森",
+            "driverPhone":"15923888028",
+            "longitude":"114.29821255382512",
+            "latitude":"30.589583523896508"
+        }]
+}

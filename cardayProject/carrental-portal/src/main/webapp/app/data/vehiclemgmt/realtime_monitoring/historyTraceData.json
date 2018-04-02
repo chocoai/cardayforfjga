@@ -1,0 +1,5 @@
+{
+    status: "success", 
+data: 
+    { totalMiles: "100", totalOilwear: "1000",  driveDuration: '6', stopDuration: '3'}
+}

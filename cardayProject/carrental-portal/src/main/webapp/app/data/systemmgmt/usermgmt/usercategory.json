@@ -1,0 +1,9 @@
+{
+"status":"success",
+"data":
+	[
+	{"id":0,"userCategory":"超级管理员"},
+	{"id":1,"userCategory":"管理员"},
+	{"id":2,"userCategory":"用户"}
+	]
+}

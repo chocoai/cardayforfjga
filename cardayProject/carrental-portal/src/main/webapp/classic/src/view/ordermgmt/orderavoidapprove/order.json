@@ -1,0 +1,29 @@
+{
+    "data": {
+        "totalRows": 2,
+        "totalPages": 1,
+        "currentPage": 1,
+        "numPerPage": 10,
+        "resultList": [
+            {
+                "id": 276761,
+                "orderNo": "20171011012398167989",
+                "deptName": "福州市公安局",
+                "vehicleNumber": "闽AA0188",
+                "applyTime": "2017-10-11",
+                "orderUser": "黄处长",
+                "orderUserphone": "13918819888",
+            },
+            {
+                "id": 276762,
+                "orderNo": "20171011012398167990",
+                "deptName": "福州市公安局",
+                "vehicleNumber": "闽OA0888",
+                "applyTime": "2017-10-11",
+                "orderUser": "陈警官",
+                "orderUserphone": "13918819888",
+            }
+        ]
+    },
+    "status": "success"
+}

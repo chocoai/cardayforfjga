@@ -1,0 +1,50 @@
+{
+    success: true,
+    total:11,
+    cars: [
+    	
+         {
+            "carNo": "鄂A37898",
+            "carMark": "大众",
+            "carStyle": "途观",
+            "seatsNumber": "7",
+            "carColor": "灰色",
+            "carType":"豪华型",
+            "outPut":"2.0T",
+            "fuelConsumption":"93(京92)",
+            "city":"上海",
+            "carSource":"首汽",
+            "permitDriveType":"C2",
+            "buyTime":"10/16/2012",
+            "vin":"L100030209"
+        },{
+           "carNo": "鄂A457768",
+            "carMark": "东风",
+            "carStyle": "3008",
+            "seatsNumber": "4",
+            "carColor": "黑色",
+            "carType":"豪华型",
+            "outPut":"2.0T",
+            "fuelConsumption":"93(京92)",
+            "city":"上海",
+            "carSource":"首汽",
+            "permitDriveType":"C2",
+            "buyTime":"10/16/2012",
+            "vin":"L100030209"
+        },{
+           "carNo": "鄂A563379",
+            "carMark": "宝马",
+            "carStyle": "X5",
+            "seatsNumber": "7",
+            "carColor": "红色",
+             "carType":"豪华型",
+            "outPut":"2.0T",
+            "fuelConsumption":"93(京92)",
+            "city":"上海",
+            "carSource":"首汽",
+            "permitDriveType":"C2",
+            "buyTime":"10/16/2012",
+            "vin":"L100030209"
+        }
+    ]
+}

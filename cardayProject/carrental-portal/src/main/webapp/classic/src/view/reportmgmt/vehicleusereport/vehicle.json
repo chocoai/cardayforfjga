@@ -1,0 +1,28 @@
+{
+    "status": "success",
+    "data": {
+    	"totalRows":"5",
+        "resultList": [
+         {"id": 1, "vehicleNumber": "鄂A99999", "vehicleBrand":"宝马","vehicleOutput":"2.0T", "FuelType":"92",
+           "department":"研发部", "totalMileage":"1000", "totalFuel":"200", "totalTravelTime":"300","useage":0.6,
+           "averageMileage":"250", "averageFuel": "30", "averageTravelTime":"6"
+         },
+         {"id": 2, "vehicleNumber": "鄂A88888", "vehicleBrand":"宝马","vehicleOutput":"2.0T", "FuelType":"92",
+           "department":"研发部", "totalMileage":"1000", "totalFuel":"200", "totalTravelTime":"300","useage":0.6,
+           "averageMileage":"250", "averageFuel": "30", "averageTravelTime":"6"
+         },
+         {"id": 3, "vehicleNumber": "鄂A77777", "vehicleBrand":"宝马","vehicleOutput":"2.0T", "FuelType":"92",
+           "department":"研发部", "totalMileage":"1000", "totalFuel":"200", "totalTravelTime":"300","useage":0.6,
+           "averageMileage":"250", "averageFuel": "30", "averageTravelTime":"6"
+         },
+         {"id": 4, "vehicleNumber": "鄂A66666", "vehicleBrand":"宝马","vehicleOutput":"2.0T", "FuelType":"92",
+           "department":"研发部", "totalMileage":"1000", "totalFuel":"200", "totalTravelTime":"300","useage":0.6,
+           "averageMileage":"250", "averageFuel": "30", "averageTravelTime":"6"
+         },
+         {"id": 5, "vehicleNumber": "鄂A55555", "vehicleBrand":"宝马","vehicleOutput":"2.0T", "FuelType":"92",
+           "department":"研发部", "totalMileage":"1000", "totalFuel":"200", "totalTravelTime":"300","useage":0.6,
+           "averageMileage":"250", "averageFuel": "30", "averageTravelTime":"6"
+         },
+    	]
+    }
+}

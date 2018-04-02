@@ -1,0 +1,85 @@
+{
+    "children": [
+        {
+            "text": "测试企业(E2E-租车)",
+            "iconCls": "x-fa fa-home",
+            "rowCls": "nav-tree-badge",
+            "viewType": "vehicleMonitoringMain_AllVehs",
+            "expanded": true,
+            "itemId": "vehicleMonitoringMain",
+            "id": "vehicleMonitoringMain",
+            "children": [
+                {
+                    "text": "<span data-qtip='研发部'>研发部</span>",
+                    "expanded": false,
+                    "iconCls": "x-fa fa-building-o",
+                    "leaf": false,
+                    "children": [
+                        {
+                            "text": "<span class='vehicle_status'>沪A201A4</span><span class='vehicle_status_offline'>离线</span>",
+                            "expanded": false,
+                            "iconCls": "x-fa fa-car",
+                            "leaf": true,
+                            "children": null,
+                            "viewType": "vehicleMonitoringMain_沪A201A4",
+                            "vehicleId": 168,
+                            "deptId": null,
+                            "level": "3"
+                        },
+                        {
+                            "text": "<span class='vehicle_status'>鄂A55544</span><span class='vehicle_status_offline'>离线</span>",
+                            "expanded": false,
+                            "iconCls": "x-fa fa-car",
+                            "leaf": true,
+                            "children": null,
+                            "viewType": "vehicleMonitoringMain_鄂A55544",
+                            "vehicleId": 2169,
+                            "deptId": null,
+                            "level": "3"
+                        }
+                    ],
+                    "viewType": "vehicleMonitoringMain_研发部",
+                    "vehicleId": null,
+                    "deptId": 78,
+                    "level": "2"
+                },
+                {
+                    "text": "<span data-qtip='测试部'>测试部</span>",
+                    "expanded": false,
+                    "iconCls": "x-fa fa-building-o",
+                    "leaf": true,
+                    "children": null,
+                    "viewType": "vehicleMonitoringMain_测试部",
+                    "vehicleId": null,
+                    "deptId": 84,
+                    "level": "2"
+                },
+                {
+                    "text": "<span data-qtip='市场部'>市场部</span>",
+                    "expanded": false,
+                    "iconCls": "x-fa fa-building-o",
+                    "leaf": false,
+                    "children": [
+                        {
+                            "text": "<span class='vehicle_status'>浙AM588M</span><span class='vehicle_status_offline'>离线</span>",
+                            "expanded": false,
+                            "iconCls": "x-fa fa-car",
+                            "leaf": true,
+                            "children": null,
+                            "viewType": "vehicleMonitoringMain_浙AM588M",
+                            "vehicleId": 167,
+                            "deptId": null,
+                            "level": "3"
+                        }
+                    ],
+                    "viewType": "vehicleMonitoringMain_市场部",
+                    "vehicleId": null,
+                    "deptId": 77,
+                    "level": "2"
+                }
+            ],
+            "leaf": false,
+            "level": "1"
+        }
+    ]
+}

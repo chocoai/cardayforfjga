@@ -1,0 +1,30 @@
+{
+    "success": true,
+    "data": [
+         {
+            "vehicleNumber": "鄂A37898",
+            "vehicleBrand": "大众",
+            "vehicleModel": "途观",
+            "vehicleColor": "灰色",
+            "vehicleType":"豪华型",
+            "vehicleOriginal":"首汽",
+            "vehicleOrgnization":"研发部"
+        },{
+           "vehicleNumber": "鄂A457768",
+            "vehicleBrand": "东风",
+            "vehicleModel": "3008",
+            "vehicleColor": "黑色",
+            "vehicleType":"豪华型",
+            "vehicleOriginal":"首汽",
+            "vehicleOrgnization":"市场部"
+        },{
+           "vehicleNumber": "鄂A563379",
+            "vehicleBrand": "宝马",
+            "vehicleModel": "X5",
+            "vehicleColor": "红色",
+            "vehicleType":"豪华型",
+            "vehicleOriginal":"首汽",
+            "vehicleOrgnization":"市场部"
+        }
+    ]
+}

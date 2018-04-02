@@ -1,0 +1,91 @@
+{
+    "data": {
+        "totalRows": 5,
+        "totalPages": 1,
+        "currentPage": 1,
+        "numPerPage": 5,
+        "resultList": [
+            {
+                "id": 101,
+                "vehicleNumber": "闽ATEST1",
+                "maintenanceItem": "补胎",
+                "amount": "1",
+                "unitPrice": "88",
+                "totalAccount": "88",
+            },
+            {
+                "id": 102,
+                "vehicleNumber": "闽A3Y397",
+                "maintenanceItem": "更换轮胎",
+                "amount": "2",
+                "unitPrice": "500",
+                "totalAccount": "1000",
+            },
+            {
+                "id": 103,
+                "vehicleNumber": "闽AH331F",
+                "maintenanceItem": "四轮定位",
+                "amount": "1",
+                "unitPrice": "200",
+                "totalAccount": "200",
+            },
+            {
+                "id": 104,
+                "vehicleNumber": "闽A00009",
+                "maintenanceItem": "更换机油",
+                "amount": "1",
+                "unitPrice": "250",
+                "totalAccount": "250",
+            },
+            {
+                "id": 105,
+                "vehicleNumber": "闽AQ984R",
+                "maintenanceItem": "更换刹车片",
+                "amount": "3",
+                "unitPrice": "110",
+                "totalAccount": "330",
+            },
+/*            {
+                "id": 106,
+                "vehicleNumber": "闽A32450",
+                "maintenanceItem": "更换玻璃",
+                "amount": "1",
+                "unitPrice": "800",
+                "totalAccount": "800",
+            },
+            {
+                "id": 107,
+                "vehicleNumber": "闽A22345",
+                "maintenanceItem": "检修冷气",
+                "amount": "1",
+                "unitPrice": "1200",
+                "totalAccount": "1200",
+            },
+            {
+                "id": 108,
+                "vehicleNumber": "闽A00211",
+                "maintenanceItem": "更换减震器",
+                "amount": "1",
+                "unitPrice": "360",
+                "totalAccount": "360",
+            },
+            {
+                "id": 109,
+                "vehicleNumber": "闽A2EQ78",
+                "maintenanceItem": "更换摆臂",
+                "amount": "1",
+                "unitPrice": "2100",
+                "totalAccount": "2100",
+            },
+            {
+                "id": 110,
+                "vehicleNumber": "闽A77766",
+                "maintenanceItem": "更换喇叭",
+                "amount": "2",
+                "unitPrice": "55",
+                "totalAccount": "110",
+            },*/
+        ]
+    },
+    "status": "success"
+}

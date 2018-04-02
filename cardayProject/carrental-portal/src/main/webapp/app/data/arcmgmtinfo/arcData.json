@@ -1,0 +1,8 @@
+{
+    success: true, 
+data: [
+                    { department_name: "代表处", address: "1", telephone: '12345678', introduction: "60156", opertion: "324"},
+                    { department_name: "市场部", address: "2", telephone: "/", introduction: "/", opertion: "/"},
+                    { department_name: "研发部", address: "/", telephone: "/", introduction: "/", opertion: "/"}
+    ]
+}

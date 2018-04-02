@@ -1,0 +1,11 @@
+{
+    status: 'success', 
+data: [
+                    {'id':'1','vehiclenumber':'沪A11111','vehicleBrand':'宝马','vehicleModel':'X5','arrangedOrgName':'研发部','totalMileage':'123456','mantainMileage':'5000','runMileage':'3000','surplusMileage':'2000','lastMantainTime':'2016-01-01'},
+                    {'id':'2','vehiclenumber':'沪A22222','vehicleBrand':'宝马','vehicleModel':'X5','arrangedOrgName':'研发部','totalMileage':'123456','mantainMileage':'5000','runMileage':'4500','surplusMileage':'500','lastMantainTime':'2016-01-01'},
+                    {'id':'3','vehiclenumber':'沪A33333','vehicleBrand':'宝马','vehicleModel':'X5','arrangedOrgName':'研发部','totalMileage':'123456','mantainMileage':'5000','runMileage':'3000','surplusMileage':'2000','lastMantainTime':'2016-01-01'},
+                    {'id':'4','vehiclenumber':'沪A44444','vehicleBrand':'宝马','vehicleModel':'X5','arrangedOrgName':'研发部','totalMileage':'123456','mantainMileage':'5000','runMileage':'6000','surplusMileage':'-1000','lastMantainTime':'2016-01-01'},
+                    {'id':'5','vehiclenumber':'沪A55555','vehicleBrand':'宝马','vehicleModel':'X5','arrangedOrgName':'市场部','totalMileage':'123456','mantainMileage':'5000','runMileage':'3000','surplusMileage':'2000','lastMantainTime':'2016-01-01'},
+                    {'id':'6','vehiclenumber':'沪A66666','vehicleBrand':'宝马','vehicleModel':'X5','arrangedOrgName':'市场部','totalMileage':'123456','mantainMileage':'5000','runMileage':'3000','surplusMileage':'2000','lastMantainTime':'2016-01-01'}
+      ]
+}

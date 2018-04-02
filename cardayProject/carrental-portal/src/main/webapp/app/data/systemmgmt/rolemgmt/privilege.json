@@ -1,0 +1,86 @@
+{
+	"success" : true,
+	"children" : 
+	[ 
+	{
+		id : '1',
+		text : '权限管理',
+		checked: false,
+		leaf : false,
+		children : [
+		{
+			id : '11',
+			text : '角色管理',
+			checked: false,
+			leaf : false,
+			children: [
+		    {
+		    	id : '111',
+		    	checked: false,
+				text : '角色管理_添加',
+				leaf : true,
+				loaded: true
+		    }, {
+		    	id : '112',
+		    	checked: false,
+				text : '角色管理_删除',
+				leaf : true,     	
+		    }, {
+		    	id : '113',
+		    	checked: false,
+				text : '角色管理_修改',
+				leaf : true,     	
+		    }, {
+		    	id : '114',
+		    	checked: false,
+				text : '角色管理_查看',
+				leaf : true,     	
+		    }]
+		}, {
+			id : '12',
+			text : '用户管理',
+			checked: false,
+			//leaf : true
+			children: [
+		    {
+		    	id : '121',
+		    	checked: false,
+				text : '用户管理_添加',
+				leaf : true,     	
+		    }, {
+		    	id : '122',
+		    	checked: false,
+				text : '用户管理_删除',
+				leaf : true,     	
+		    }, {
+		    	id : '123',
+		    	checked: false,
+				text : '用户管理_修改',
+				leaf : true,     	
+		    }, {
+		    	id : '124',
+		    	checked: false,
+				text : '用户管理_查看',
+				leaf : true,     	
+		    }]
+		}]
+	}, 
+	{
+		id : '2',
+		text : '机构管理',
+		leaf : false,
+		checked: false,
+		children : [ {
+			id : '21',
+			text : '企业信息管理',
+			leaf : true,
+			checked: false,
+		}, {
+			id : '22',
+			text : '企业信息审核',
+			leaf : true,
+			checked: false,
+		}]
+	}
+]
+}

@@ -1,0 +1,251 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>carrental</groupId>
+		<artifactId>carrental-parent</artifactId>
+		<version>2.0.1-fjga</version>
+		<relativePath>../carrental-parent/pom.xml</relativePath>
+    </parent>
+    <artifactId>carrental-quartz</artifactId>
+    <packaging>war</packaging>
+
+    <dependencies>
+    
+        <!-- module reference -->
+        <dependency>
+	          <groupId>carrental</groupId>
+			  <artifactId>carrental-common</artifactId>
+			  <version>2.0.1-fjga</version>
+			  <exclusions>  
+					<exclusion>
+						<groupId>org.apache.shiro</groupId>
+						<artifactId>shiro-ehcache</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.apache.shiro</groupId>
+						<artifactId>shiro-web</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.apache.shiro</groupId>
+						<artifactId>shiro-quartz</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.apache.shiro</groupId>
+						<artifactId>shiro-spring</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>com.fasterxml.jackson.core</groupId>
+						<artifactId>jackson-databind</artifactId>
+					</exclusion>
+			</exclusions>  
+	     </dependency>
+	     
+        <!-- 单元测试 -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        
+        <!-- commons -->
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+        </dependency>
+
+        <!-- aspectj相关jar包-->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+        </dependency>
+        
+        <!-- spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+        </dependency>
+
+		<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+        </dependency>
+      	
+		<!-- log4j -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+		
+		 <!--  postgresql -->
+        <dependency>
+			<groupId>net.postgis</groupId>
+			<artifactId>postgis-jdbc</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>ch.qos.logback</groupId>
+					<artifactId>logback-classic</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>ch.qos.logback</groupId>
+					<artifactId>logback-core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+        <dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>
+		
+		<!-- druid -->
+<!-- 		<dependency> -->
+<!--             <groupId>com.alibaba</groupId> -->
+<!--             <artifactId>druid</artifactId> -->
+<!--         </dependency> -->
+<!--         <dependency> -->
+<!-- 			    <groupId>com.mchange</groupId> -->
+<!-- 			    <artifactId>c3p0</artifactId> -->
+<!-- 		</dependency> -->
+      	
+      	<!-- quartz-->
+      	<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+		</dependency>
+		
+		<!-- fasterxml -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+        
+        
+        
+    </dependencies>
+
+	<profiles>
+		<profile>
+			<id>cr-local</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<res_dir>env-config/cr-local</res_dir>
+			</properties>
+		</profile>
+		<profile>
+			<id>cr_test</id>
+			<properties>
+				<res_dir>env-config/cr-test</res_dir>
+			</properties>
+		</profile>
+		<profile>
+			<id>cr-uat</id>
+			<properties>
+				<res_dir>env-config/cr-uat</res_dir>
+			</properties>
+		</profile>
+		<profile>
+			<id>cr-prod</id>
+			<properties>
+				<res_dir>env-config/cr-prod</res_dir>
+			</properties>
+		</profile>
+		<profile>
+			<id>cd-dev</id>
+			<properties>
+				<res_dir>env-config/cd-dev</res_dir>
+			</properties>
+		</profile>
+		<profile>
+			<id>cd-pt</id>
+			<properties>
+				<res_dir>env-config/cd-pt</res_dir>
+			</properties>
+		</profile>
+	</profiles>
+	
+     <build>
+       <finalName>/carrental-quartz</finalName>
+       <filters>
+			<filter>env-config/${package.environment}/cr-quartz.properties</filter>
+		</filters>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<filtering>true</filtering>
+			</testResource>
+		</testResources>
+	    <plugins>
+	        <!-- 资源文件拷贝插件 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<configuration>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+				<!-- java编译插件 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>1.7</source>
+						<target>1.7</target>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.tomcat.maven</groupId>
+					<artifactId>tomcat7-maven-plugin</artifactId>
+					<configuration>
+					   <port>8888</port>
+					   <path>/carrental-quartz</path>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.sonar</groupId>
+					<artifactId>sonar-maven3-plugin</artifactId>
+					<version>4.5.7</version>
+					<executions>
+						<execution>
+							<id>sonar</id>
+							<phase>site</phase>
+							<goals>
+								<goal>sonar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+		</plugins>
+    </build>
+
+</project>
